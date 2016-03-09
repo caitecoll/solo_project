@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../vendors/angular.min.js"></script>
+    <script type="text/javascript" src="../vendors/angular-route.min.js"></script>
+    <script type="text/javascript" src="../scripts/app.js"></script>
+    <script type="text/javascript" src="../scripts/controllers/devprofcontroller.js"></script>
+    <script type="text/javascript" src="../scripts/controllers/techprofcontroller.js"></script>
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+    <h1>Caitlin's Solo Project</h1>
+    <div ng-include="'views/templates/nav.html'"></div>
+    <div>
+        <main ng-view></main>
+    </div>
+</body>
+</html>
