@@ -1,14 +1,32 @@
 <div class="twelve columns">
-    <div ng-repeat="profile in devProfiles">
+    <div ng-repeat="profile in devProfiles" class="devprofile">
         <div>
-            <h2>{{profile.article_title}}</h2>
-            <img src="../../img/{{profile.article_photo}}" width="300px"/>
-            <h3>{{profile.article_blurb}}</h3>
-            <p>By {{profile.first_name}} {{profile.last_name}}</p>
-            <p>Date {{profile.last_modified}}</p>
-            <p>{{profile.content}}</p>
-            <img src="../../img/{{profile.photo}}" width="75px"/>
-            <p>{{profile.bio}}</p>
+            <div class="row">
+                <h2>{{profile.article_title}}</h2>
+            </div>
+            <div class="row">
+                <h3 class="eight columns">{{profile.article_blurb}}</h3>
+                <img class="mainimg four columns" src="../../img/{{profile.article_photo}}" width="250px"/>
+            </div>
+            <div class="row">
+                <p>By {{profile.first_name}} {{profile.last_name}}</p>
+                <p>Date {{profile.last_modified}}</p>
+            </div>
+            <div class="row">
+                <nav class="jargonator">
+                    <ul class="tabs">
+                        <li class="active"><a href="#techprofile">Just the Facts</a></li>
+                        <li><a href="#devprofile">Add Jargon</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row">
+                <p>{{profile.content}}</p>
+            </div>
+            <div class="row">
+                <img src="../../img/{{profile.photo}}" width="75px"/>
+                <p>{{profile.bio}}</p>
+            </div>
         </div>
     </div>
     <div ng-repeat="profile in featDevProfiles">

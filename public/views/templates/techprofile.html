@@ -1,38 +1,56 @@
 <div class="twelve columns">
-    <div ng-repeat="profile in techProfiles">
+    <div ng-repeat="profile in techProfiles" class="techprofile">
         <div>
-            <h2>{{profile.article_title}}</h2>
-            <img class="mainimg" src="../../img/{{profile.article_photo}}" width="300px"/>
-            <h3>{{profile.article_blurb}}</h3>
+            <div class="row">
+                <h2>{{profile.article_title}}</h2>
+            </div>
+            <div class="row">
+                <h3 class="eight columns">{{profile.article_blurb}}</h3>
+                <img class="mainimg four columns" src="../../img/{{profile.article_photo}}" width="250px"/>
+            </div>
             <!--<img src="../../img/{{profile.article_photo}}" width="300px"/>-->
-            <p>By {{profile.first_name}} {{profile.last_name}}</p>
-            <p>Date {{profile.last_modified}}</p>
-            <div class="nj">
-                <p>What It Is: {{profile.nj_what}}</p>
-                <p>Why It's Cool: {{profile.nj_why}}</p>
-                <p>How I Use It: </p>
-                <ul>
-                    <li>Developer, less than 1 year experience: {{profile.nj_how_new_dev}}</li>
-                    <li>Developer, 3-5 years of experience: {{profile.nj_how_exp_dev}}</li>
-                    <li>Developer, over 5 years of experience: {{profile.nj_how_sr_dev}}</li>
-                </ul>
-                <p>Heated Topics: {{profile.nj_controversy}}</p>
+            <div class="row">
+                <p>By {{profile.first_name}} {{profile.last_name}}</p>
+                <p>Date {{profile.last_modified}}</p>
             </div>
-            <div class="j">
-                <p>What It Is: {{profile.j_what}}</p>
-                <p>Why It's Cool: {{profile.j_why}}</p>
-                <p>How I Use It: </p>
-                <ul>
-                    <li>Developer, less than 1 year experience: {{profile.j_how_new_dev}}</li>
-                    <li>Developer, 3-5 years of experience: {{profile.j_how_exp_dev}}</li>
-                    <li>Developer, over 5 years of experience: {{profile.j_how_sr_dev}}</li>
-                </ul>
-                <p>Heated Topics: {{profile.j_controversy}}</p>
+            <div class="row">
+                <nav class="jargonator">
+                    <ul class="tabs">
+                        <li class="active"><a href="#techprofile">Just the Facts</a></li>
+                        <li><a href="#devprofile">Add Jargon</a></li>
+                    </ul>
+                </nav>
             </div>
-            <p>Additional External Resources: {{profile.additional_resoureces}}</p>
-            <p>Essential Terminology {{profile.terms}}</p>
-            <img src="../../img/{{profile.photo}}" width="75px"/>
-            <p>About {{profile.first_name}}: {{profile.bio}}</p>
+            <div class="row">
+                <div class="nj">
+                    <p>What It Is: {{profile.nj_what}}</p>
+                    <p>Why It's Cool: {{profile.nj_why}}</p>
+                    <p>How I Use It: </p>
+                    <ul>
+                        <li>Developer, less than 1 year experience: {{profile.nj_how_new_dev}}</li>
+                        <li>Developer, 3-5 years of experience: {{profile.nj_how_exp_dev}}</li>
+                        <li>Developer, over 5 years of experience: {{profile.nj_how_sr_dev}}</li>
+                    </ul>
+                    <p>Heated Topics: {{profile.nj_controversy}}</p>
+                </div>
+                <div class="j">
+                    <p>What It Is: {{profile.j_what}}</p>
+                    <p>Why It's Cool: {{profile.j_why}}</p>
+                    <p>How I Use It: </p>
+                    <ul>
+                        <li>Developer, less than 1 year experience: {{profile.j_how_new_dev}}</li>
+                        <li>Developer, 3-5 years of experience: {{profile.j_how_exp_dev}}</li>
+                        <li>Developer, over 5 years of experience: {{profile.j_how_sr_dev}}</li>
+                    </ul>
+                    <p>Heated Topics: {{profile.j_controversy}}</p>
+                </div>
+                <p>Additional External Resources: {{profile.additional_resoureces}}</p>
+                <p>Essential Terminology {{profile.terms}}</p>
+            </div>
+            <div class="row">
+                <img class="two columns" src="../../img/{{profile.photo}}" width="75px"/>
+                <p class="ten columns">About {{profile.first_name}}: {{profile.bio}}</p>
+            </div>
         </div>
     </div>
     <div ng-repeat="profile in featTechProfiles">
