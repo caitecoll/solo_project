@@ -1,1 +1,21 @@
-<h2>This is where a Dev Profile would go</h2>
+<div class="twelve columns">
+    <div ng-repeat="profile in devProfiles">
+        <div>
+            <h2>{{profile.article_title}}</h2>
+            <img src="../../img/{{profile.article_photo}}" width="300px"/>
+            <h3>{{profile.article_blurb}}</h3>
+            <p>By {{profile.first_name}} {{profile.last_name}}</p>
+            <p>Date {{profile.last_modified}}</p>
+            <p>{{profile.content}}</p>
+            <img src="../../img/{{profile.photo}}" width="75px"/>
+            <p>{{profile.bio}}</p>
+        </div>
+    </div>
+    <div ng-repeat="profile in featDevProfiles">
+        <div>
+            <h4>Featured Article:</h4>
+            <p>{{profile.article_title}}</p>
+            <p>{{profile.article_blurb}}</p>
+        </div>
+    </div>
+</div>

@@ -1,18 +1,15 @@
 var express = require('express');
 var app = express();
-var path = require('path');
 var bodyParser = require('body-parser');
-
-var pg = require('pg');
-var connectionString = '';
-if(process.env.DATABASE_URL != undefined) {
-  connectionString = process.env.DATABASE_URL + 'ssl';
-} else {
-  connectionString = 'postgres://localhost:5432/SoloProject';
-}
+var path = require('path');
+var devModule = require('./routes/devmodule');
+var techModule = require('./routes/techmodule');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use('/devprof', devModule);
+app.use('/techprof', techModule);
 
 app.get('/*', function(req, res) {
   var file = req.params[0] || '/views/index.html';

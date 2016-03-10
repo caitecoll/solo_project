@@ -1,1 +1,47 @@
-<h2>This is where a Tech Profile would go</h2>
+<div class="twelve columns">
+    <div ng-repeat="profile in techProfiles">
+        <div>
+            <h2>{{profile.article_title}}</h2>
+            <img class="mainimg" src="../../img/{{profile.article_photo}}" width="300px"/>
+            <h3>{{profile.article_blurb}}</h3>
+            <!--<img src="../../img/{{profile.article_photo}}" width="300px"/>-->
+            <p>By {{profile.first_name}} {{profile.last_name}}</p>
+            <p>Date {{profile.last_modified}}</p>
+            <div class="nj">
+                <p>What It Is: {{profile.nj_what}}</p>
+                <p>Why It's Cool: {{profile.nj_why}}</p>
+                <p>How I Use It: </p>
+                <ul>
+                    <li>Developer, less than 1 year experience: {{profile.nj_how_new_dev}}</li>
+                    <li>Developer, 3-5 years of experience: {{profile.nj_how_exp_dev}}</li>
+                    <li>Developer, over 5 years of experience: {{profile.nj_how_sr_dev}}</li>
+                </ul>
+                <p>Heated Topics: {{profile.nj_controversy}}</p>
+            </div>
+            <div class="j">
+                <p>What It Is: {{profile.j_what}}</p>
+                <p>Why It's Cool: {{profile.j_why}}</p>
+                <p>How I Use It: </p>
+                <ul>
+                    <li>Developer, less than 1 year experience: {{profile.j_how_new_dev}}</li>
+                    <li>Developer, 3-5 years of experience: {{profile.j_how_exp_dev}}</li>
+                    <li>Developer, over 5 years of experience: {{profile.j_how_sr_dev}}</li>
+                </ul>
+                <p>Heated Topics: {{profile.j_controversy}}</p>
+            </div>
+            <p>Additional External Resources: {{profile.additional_resoureces}}</p>
+            <p>Essential Terminology {{profile.terms}}</p>
+            <img src="../../img/{{profile.photo}}" width="75px"/>
+            <p>About {{profile.first_name}}: {{profile.bio}}</p>
+        </div>
+    </div>
+    <div ng-repeat="profile in featTechProfiles">
+        <div>
+            <h4>Featured Article:</h4>
+            <p>{{profile.article_title}}</p>
+            <p>{{profile.article_blurb}}</p>
+        </div>
+    </div>
+</div>
+
+

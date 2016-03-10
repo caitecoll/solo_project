@@ -5,15 +5,29 @@
     <script type="text/javascript" src="../vendors/angular.min.js"></script>
     <script type="text/javascript" src="../vendors/angular-route.min.js"></script>
     <script type="text/javascript" src="../scripts/app.js"></script>
+    <script type="text/javascript" src="../scripts/factories/contentfactory.js"></script>
     <script type="text/javascript" src="../scripts/controllers/devprofcontroller.js"></script>
     <script type="text/javascript" src="../scripts/controllers/techprofcontroller.js"></script>
+
+    <link rel="stylesheet" href="../vendors/normalize.css" />
+    <link rel="stylesheet" href="../vendors/skeleton.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <title>Title</title>
 </head>
 <body ng-app="myApp">
-    <h1>Caitlin's Solo Project</h1>
-    <div ng-include="'views/templates/nav.html'"></div>
-    <div>
-        <main ng-view></main>
+
+    <div class="container offset-by-two twelve columns">
+        <div class="row">
+            <h1>Caitlin's Solo Project</h1>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <div ng-include="'views/templates/nav.html'"></div>
+            </div>
+        </div>
+        <div class="row">
+            <main ng-view class="twelve columns"></main>
+        </div>
     </div>
 </body>
 </html>

@@ -1,0 +1,35 @@
+.navlist {
+    height: 40px;
+    line-height: 30px;
+    margin: 0 auto 15px auto;
+    padding-top: 10px;
+    text-align: left;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #66c0b7;
+    opacity: .8;
+}
+
+.navlist li {
+    font-size: 24px;
+    display: inline;
+    list-style-type: none;
+    padding-top: 7px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    height: 100%;
+    padding: 10px 20px 10px 20px;
+}
+
+/*.mainimg {*/
+    /*display: inline-block;*/
+    /*float: right;*/
+    /*vertical-align: bottom;*/
+/*}*/
+
+/*h3 {*/
+    /*display: inline-block;*/
+/*}*/
