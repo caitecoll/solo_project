@@ -13,11 +13,12 @@
     display: inline;
     list-style-type: none;
     padding-top: 7px; }
-  .topNavlist a {
-    text-decoration: none;
-    color: white;
-    height: 100%;
-    padding: 10px 20px 10px 20px; }
+
+.navItem {
+  text-decoration: none;
+  color: white;
+  height: 100%;
+  padding: 10px 20px 10px 20px; }
 
 .mainimg {
   display: inline-block;
@@ -79,5 +80,8 @@ h3 {
     box-shadow: 0 2px white, 0 0 2px rgba(0, 0, 0, 0.2); }
   .tabs .active a.icon > span, .tabs a.icon:active > span {
     background-position: 0 -16px; }
+
+.result {
+  color: black; }
 
 /*# sourceMappingURL=style.css.map */

@@ -21,12 +21,13 @@ $navBackgroundColor: #759aaf;
     list-style-type: none;
     padding-top: 7px;
   }
-  a {
-    text-decoration: none;
-    color: white;
-    height: 100%;
-    padding: 10px 20px 10px 20px;
-  }
+}
+
+.navItem {
+  text-decoration: none;
+  color: white;
+  height: 100%;
+  padding: 10px 20px 10px 20px;
 }
 
 .mainimg {
@@ -95,6 +96,10 @@ h3 {
   }
 
   .active a.icon, a.icon:active { > span { background-position: 0 -16px; } }
+}
+
+.result {
+  color: black;
 }
 
 
