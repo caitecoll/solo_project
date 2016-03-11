@@ -6,26 +6,26 @@
             </div>
             <div class="row">
                 <h3 class="eight columns">{{profile.article_blurb}}</h3>
-                <img class="mainimg four columns" src="../../img/{{profile.article_photo}}" width="250px"/>
+                <img class="mainimg four columns" ng-src="../../img/{{profile.article_photo}}" width="250px"/>
             </div>
             <div class="row">
                 <p>By {{profile.first_name}} {{profile.last_name}}</p>
                 <p>Date {{profile.last_modified}}</p>
             </div>
-            <div class="row">
-                <nav class="jargonator">
-                    <ul class="tabs">
-                        <li class="active"><a href="#techprofile">Just the Facts</a></li>
-                        <li><a href="#devprofile">Add Jargon</a></li>
-                    </ul>
-                </nav>
-            </div>
+            <!--<div class="row">-->
+                <!--<nav class="jargonator">-->
+                    <!--<ul class="tabs">-->
+                        <!--<li class="active"><a href="" ng-click="showme=true">Just the Facts</a></li>-->
+                        <!--<li><a href="" ng-click="showme=false">Add Jargon</a></li>-->
+                    <!--</ul>-->
+                <!--</nav>-->
+            <!--</div>-->
             <div class="row">
                 <p>{{profile.content}}</p>
             </div>
             <div class="row">
-                <img src="../../img/{{profile.photo}}" width="75px"/>
-                <p>{{profile.bio}}</p>
+                <img class="two columns" ng-src="../../img/{{profile.photo}}" width="75px"/>
+                <p class="ten columns" >{{profile.bio}}</p>
             </div>
         </div>
     </div>

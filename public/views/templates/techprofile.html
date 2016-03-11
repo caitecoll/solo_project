@@ -6,7 +6,7 @@
             </div>
             <div class="row">
                 <h3 class="eight columns">{{profile.article_blurb}}</h3>
-                <img class="mainimg four columns" src="../../img/{{profile.article_photo}}" width="250px"/>
+                <img class="mainimg four columns" ng-src="../../img/{{profile.article_photo}}" width="250px"/>
             </div>
             <!--<img src="../../img/{{profile.article_photo}}" width="300px"/>-->
             <div class="row">
@@ -16,13 +16,13 @@
             <div class="row">
                 <nav class="jargonator">
                     <ul class="tabs">
-                        <li class="active"><a href="#techprofile">Just the Facts</a></li>
-                        <li><a href="#devprofile">Add Jargon</a></li>
+                        <li class="active"><a href="" ng-click="showme=false">Just the Facts</a></li>
+                        <li><a href="" ng-click="showme=true">Add Jargon</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="row">
-                <div class="nj">
+                <div class="nj" ng-hide="showme">
                     <p>What It Is: {{profile.nj_what}}</p>
                     <p>Why It's Cool: {{profile.nj_why}}</p>
                     <p>How I Use It: </p>
@@ -33,7 +33,7 @@
                     </ul>
                     <p>Heated Topics: {{profile.nj_controversy}}</p>
                 </div>
-                <div class="j">
+                <div class="j" ng-show="showme">
                     <p>What It Is: {{profile.j_what}}</p>
                     <p>Why It's Cool: {{profile.j_why}}</p>
                     <p>How I Use It: </p>
@@ -48,7 +48,7 @@
                 <p>Essential Terminology {{profile.terms}}</p>
             </div>
             <div class="row">
-                <img class="two columns" src="../../img/{{profile.photo}}" width="75px"/>
+                <img class="two columns" ng-src="../../img/{{profile.photo}}" width="75px"/>
                 <p class="ten columns">About {{profile.first_name}}: {{profile.bio}}</p>
             </div>
         </div>

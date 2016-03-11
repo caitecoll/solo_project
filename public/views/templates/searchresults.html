@@ -1,0 +1,6 @@
+<input type="text" ng-model="tags">
+
+<div ng-repeat="article in articles | filter:tag">
+    <h3>{{article.name}}</h3>
+    <p ng-repeat="tag in article.tags">{{tag}}</p>
+</div>

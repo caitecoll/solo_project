@@ -2,5 +2,11 @@
     <ul>
         <li><a href="#techprofile">Tech Profiles</a></li>
         <li><a href="#devprofile">Developer Profiles</a></li>
+        <input ng-controller="SearchController" ng-model="searchText" ng-change="change(text)" placeholder="Search Articles" />
+        <ul>
+            <li ng-repeat="article in articles">
+                <span class="result"><a href="{{article.link}}">{{article.article_title}}</a></span>
+            </li>
+        </ul>
     </ul>
 </div>
