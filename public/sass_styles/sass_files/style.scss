@@ -6,7 +6,9 @@ $navBackgroundColor: #759aaf;
 
 
 .topNavlist {
+  position: absolute;
   height: 40px;
+  z-index: 2;
   line-height: 30px;
   margin: 0 auto 15px auto;
   padding-top: 10px;
@@ -14,12 +16,46 @@ $navBackgroundColor: #759aaf;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   background-color: #66c0b7;
-  opacity: .8;
-  li {
+  //opacity: .8;
+  .navlink {
+    //position: fixed;
     font-size: 24px;
     display: inline;
     list-style-type: none;
     padding-top: 7px;
+  }
+  ul {
+    //position: fixed;
+    display: inline;
+  }
+  .search {
+    //position: fixed;
+    float: right;
+    margin-right: 10px;
+    margin-top: 4px;
+    margin-bottom: 0;
+    width: 300px;
+  }
+  .searchResults {
+    //position: fixed;
+    float: right;
+    //position: relative;
+    margin-right: 10px;
+    margin-top: 4px;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    list-style-type: none;
+    background: white;
+    opacity: 1;
+    border: solid black 1px;
+  }
+  .searchList {
+    //position: fixed;
+    list-style-type: none;
+    li {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -35,6 +71,10 @@ $navBackgroundColor: #759aaf;
   float: right;
   /*vertical-align: bottom;*/
   text-align: center;
+}
+
+.mainContent {
+  margin-top: 80px;
 }
 
 h3 {
@@ -101,5 +141,7 @@ h3 {
 .result {
   color: black;
 }
+
+
 
 
