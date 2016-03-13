@@ -22,11 +22,11 @@ router.get('/:query', function(req, res) {
   var results = [];
 
   var mySearch = {
-    search: '%' + req.params.query + '%'
+    search: '% ' + req.params.query + '%'
   };
 
   pg.connect(connectionString, function (err, client, done) {
-    var query = client.query("SELECT article_title FROM tech_profiles WHERE article_title ILIKE $1 OR article_blurb ILIKE $1 " +
+    var query = client.query("SELECT article_title, id FROM tech_profiles WHERE article_title ILIKE $1 OR article_blurb ILIKE $1 " +
       "OR nj_what ILIKE $1 OR nj_why ILIKE $1 OR nj_how_new_dev ILIKE $1 OR nj_how_exp_dev ILIKE $1 OR nj_how_sr_dev ILIKE $1 OR " +
       "nj_controversy ILIKE $1 OR j_what ILIKE $1 OR j_why ILIKE $1 OR j_how_new_dev ILIKE $1 OR j_how_exp_dev ILIKE $1 OR " +
       "j_how_sr_dev ILIKE $1 OR j_controversy ILIKE $1 OR terms ILIKE $1;" ,
@@ -37,7 +37,8 @@ router.get('/:query', function(req, res) {
     });
 
     query.on('end', function() {
-      var query2 = client.query("SELECT article_title FROM developer_profiles WHERE article_title ILIKE $1 OR article_blurb ILIKE $1;",
+      var query2 = client.query("SELECT article_title, id FROM developer_profiles WHERE article_title ILIKE $1 OR article_blurb " +
+        "ILIKE $1 OR content ILIKE $1;",
         [mySearch.search]);
 
       query2.on('row', function(row) {

@@ -4,10 +4,13 @@ $siteWidth: 680px;
 $navHeight: 34px;
 $navBackgroundColor: #759aaf;
 
+a {
+  color: black;
+}
 
 .topNavlist {
   position: absolute;
-  height: 40px;
+  height: 50px;
   z-index: 2;
   line-height: 30px;
   margin: 0 auto 15px auto;
@@ -49,10 +52,6 @@ $navBackgroundColor: #759aaf;
     background: white;
     opacity: 1;
     border: solid black 1px;
-  }
-  .searchList {
-    //position: fixed;
-    list-style-type: none;
     li {
       margin-bottom: 0;
     }

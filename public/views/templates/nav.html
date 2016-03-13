@@ -1,12 +1,14 @@
-<div ng-controller="SearchController" class="row topNavlist">
+<div ng-controller="SearchController" class="row topNavlist twelve columns">
     <ul>
         <li class="navlink"><a href="#techprofile" class="navItem">Tech Profiles</a></li>
         <li class="navlink"><a href="#devprofile" class="navItem">Developer Profiles</a></li>
     </ul>
-        <input class="search" ng-model="searchText" ng-change="change(text)" placeholder="Search Articles" />
-            <div class="searchResults">
-                <ul class="searchList">
-                    <li ng-repeat="article in articles"><a class="result">{{article.article_title}}</a></li>
-                </ul>
-            </div>
+    <input class="search" ng-model="searchText" ng-change="change(text)" placeholder="Search Articles" />
+    <ul ng-show="articles.length >= 1" class="searchResults searchList">
+        <li ng-repeat="article in articles"><a class="result" ng-click="selectResult(article.id)">{{article.article_title}}</a></li>
+    </ul>
+    <ul ng-show="searchText.length > 1 && articles.length < 1" class="searchResults" class="searchList">
+        <li>No Results</li>
+    </ul>
+
 </div>

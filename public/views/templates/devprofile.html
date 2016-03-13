@@ -2,7 +2,7 @@
     <div ng-repeat="profile in devProfiles" class="devprofile">
         <div>
             <div class="row">
-                <h2>{{profile.article_title}}</h2>
+                <h2><a ng-click="selectDevArticle(profile.id)">{{profile.article_title}}</a></h2>
             </div>
             <div class="row">
                 <h3 class="eight columns">{{profile.article_blurb}}</h3>

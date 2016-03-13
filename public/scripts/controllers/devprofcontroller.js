@@ -1,4 +1,4 @@
-myApp.controller('DevProfController', ['$scope', '$http', 'ContentFactory', function($scope, $http, ContentFactory) {
+myApp.controller('DevProfController', ['$scope', '$http', '$location', 'ContentFactory', function($scope, $http, $location, ContentFactory) {
 
   $scope.contentFactory = ContentFactory;
 
@@ -7,12 +7,16 @@ myApp.controller('DevProfController', ['$scope', '$http', 'ContentFactory', func
 
   $scope.contentFactory.factoryRetrieveDevProfs().then(function() {
     $scope.devProfiles = $scope.contentFactory.factoryDevList();
-    console.log('These are the dev profiles in the controller', $scope.devProfiles);
+    //console.log('These are the dev profiles in the controller', $scope.devProfiles);
   });
 
   $scope.contentFactory.factoryFeaturedDev().then(function() {
     $scope.featDevProfiles = $scope.contentFactory.factoryFeatDevList();
-    console.log('These are the featured dev profiles in the controller', $scope.featDevProfiles);
+    //console.log('These are the featured dev profiles in the controller', $scope.featDevProfiles);
   });
 
+  $scope.selectDevArticle = function(id){
+    $scope.contentFactory.getDevArticleId(id);
+    $location.path('devarticle');
+  };
 }]);

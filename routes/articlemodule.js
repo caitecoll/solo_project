@@ -1,6 +1,3 @@
-/**
- * Created by cecollins on 3/9/16.
- */
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
@@ -18,10 +15,17 @@ if (process.env.DATABASE_URL !== undefined) {
   connectionString = 'postgres://localhost:5432/SoloProject';
 }
 
-router.get('/', function(req, res) {
+router.get('/:id', function(req, res) {
   var results = [];
+
+  var article = {
+    id: req.params.id
+  };
+
   pg.connect(connectionString, function (err, client, done) {
-    var query = client.query('SELECT * FROM tech_profiles JOIN authors ON (tech_profiles.author_id = authors.author_id) ORDER BY date_created desc');
+    var query = client.query('SELECT * FROM tech_profiles JOIN authors ON (tech_profiles.author_id = authors.author_id) WHERE ' +
+      'tech_profiles.id = $1',
+      [article.id]);
 
     query.on('row', function(row) {
       results.push(row);
@@ -33,15 +37,23 @@ router.get('/', function(req, res) {
     });
 
     if(err) {
+      done();
       console.log(err);
     }
   });
 });
 
-router.get('/featured', function(req, res) {
+router.get('/dev/:id', function(req, res) {
   var results = [];
+
+  var article = {
+    id: req.params.id
+  };
+
   pg.connect(connectionString, function (err, client, done) {
-    var query = client.query('SELECT article_title, article_blurb FROM tech_profiles WHERE featured = true');
+    var query = client.query('SELECT * FROM developer_profiles JOIN authors ON (developer_profiles.author_id = authors.author_id)' +
+      ' WHERE developer_profiles.id = $1',
+      [article.id]);
 
     query.on('row', function(row) {
       results.push(row);
@@ -53,9 +65,12 @@ router.get('/featured', function(req, res) {
     });
 
     if(err) {
+      done();
       console.log(err);
     }
   });
 });
+
+
 
 module.exports = router;

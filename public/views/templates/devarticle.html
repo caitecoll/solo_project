@@ -1,0 +1,24 @@
+<div class="twelve columns">
+    <div ng-repeat="article in articles" class="devprofile">
+        <div>
+            <div class="row">
+                <h2>{{article.article_title}}</h2>
+            </div>
+            <div class="row">
+                <h3 class="eight columns">{{article.article_blurb}}</h3>
+                <img class="mainimg four columns" ng-src="../../img/{{article.article_photo}}" width="250px"/>
+            </div>
+            <div class="row">
+                <p>By {{article.first_name}} {{article.last_name}}</p>
+                <p>Date {{article.last_modified}}</p>
+            </div>
+            <div class="row">
+                <p>{{article.content}}</p>
+            </div>
+            <div class="row">
+                <img class="two columns" ng-src="../../img/{{article.photo}}" width="75px"/>
+                <p class="ten columns" >{{article.bio}}</p>
+            </div>
+        </div>
+    </div>
+</div>

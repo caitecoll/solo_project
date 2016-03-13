@@ -21,7 +21,7 @@ if (process.env.DATABASE_URL !== undefined) {
 router.get('/', function(req, res) {
   var results = [];
   pg.connect(connectionString, function (err, client, done) {
-    var query = client.query('SELECT * FROM developer_profiles JOIN authors ON (developer_profiles.author_id = authors.id) ORDER BY date_created desc');
+    var query = client.query('SELECT * FROM developer_profiles JOIN authors ON (developer_profiles.author_id = authors.author_id) ORDER BY date_created desc');
 
     query.on('row', function(row) {
       results.push(row);

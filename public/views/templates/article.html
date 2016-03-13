@@ -1,0 +1,56 @@
+<div class="twelve columns">
+    <div ng-repeat="article in articles" class="techprofile">
+        <div>
+            <div class="row">
+                <h2>{{article.article_title}}</h2>
+            </div>
+            <div class="row">
+                <h3 class="eight columns">{{article.article_blurb}}</h3>
+                <img class="mainimg four columns" ng-src="../../img/{{article.article_photo}}" width="250px"/>
+            </div>
+            <!--<img src="../../img/{{profile.article_photo}}" width="300px"/>-->
+            <div class="row">
+                <p>By {{article.first_name}} {{article.last_name}}</p>
+                <p>Date {{article.last_modified}}</p>
+            </div>
+            <div class="row">
+                <nav class="jargonator">
+                    <ul class="tabs">
+                        <li class="active"><a href="" ng-click="showme=false">Just the Facts</a></li>
+                        <li><a href="" ng-click="showme=true">Add Jargon</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="nj" ng-hide="showme">
+                    <p>What It Is: {{article.nj_what}}</p>
+                    <p>Why It's Cool: {{article.nj_why}}</p>
+                    <p>How I Use It: </p>
+                    <ul>
+                        <li>Developer, less than 1 year experience: {{article.nj_how_new_dev}}</li>
+                        <li>Developer, 3-5 years of experience: {{article.nj_how_exp_dev}}</li>
+                        <li>Developer, over 5 years of experience: {{article.nj_how_sr_dev}}</li>
+                    </ul>
+                    <p>Heated Topics: {{article.nj_controversy}}</p>
+                </div>
+                <div class="j" ng-show="showme">
+                    <p>What It Is: {{article.j_what}}</p>
+                    <p>Why It's Cool: {{article.j_why}}</p>
+                    <p>How I Use It: </p>
+                    <ul>
+                        <li>Developer, less than 1 year experience: {{article.j_how_new_dev}}</li>
+                        <li>Developer, 3-5 years of experience: {{article.j_how_exp_dev}}</li>
+                        <li>Developer, over 5 years of experience: {{article.j_how_sr_dev}}</li>
+                    </ul>
+                    <p>Heated Topics: {{article.j_controversy}}</p>
+                </div>
+                <p>Additional External Resources: {{article.additional_resoureces}}</p>
+                <p>Essential Terminology {{article.terms}}</p>
+            </div>
+            <div class="row">
+                <img class="two columns" ng-src="../../img/{{article.photo}}" width="75px"/>
+                <p class="ten columns">About {{article.first_name}}: {{article.bio}}</p>
+            </div>
+        </div>
+    </div>
+</div>

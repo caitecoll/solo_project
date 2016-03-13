@@ -9,6 +9,8 @@
     <script type="text/javascript" src="../scripts/controllers/devprofcontroller.js"></script>
     <script type="text/javascript" src="../scripts/controllers/techprofcontroller.js"></script>
     <script type="text/javascript" src="../scripts/controllers/searchcontroller.js"></script>
+    <script type="text/javascript" src="../scripts/controllers/articlecontroller.js"></script>
+    <script type="text/javascript" src="../scripts/controllers/devarticlecontroller.js"></script>
 
     <link rel="stylesheet" href="../vendors/normalize.css" />
     <link rel="stylesheet" href="../vendors/skeleton.css" />
@@ -23,9 +25,7 @@
             <h1>Caitlin's Solo Project</h1>
         </div>
         <div class="row">
-            <div class="twelve columns">
-                <div ng-include="'views/templates/nav.html'"></div>
-            </div>
+            <div ng-include="'views/templates/nav.html'" class="twelve columns"></div>
         </div>
         <div class="row mainContent">
             <main ng-view class="twelve columns"></main>

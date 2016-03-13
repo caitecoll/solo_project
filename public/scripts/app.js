@@ -12,10 +12,14 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/templates/devprofile.html',
       controller: 'DevProfController'
     })
-    //.when('/searchresults', {
-    //  templateUrl: '/views/templates/searchresults.html',
-    //  controller: 'SearchController'
-    //})
+    .when('/article', {
+      templateUrl: '/views/templates/article.html',
+      controller: 'ArticleController'
+    })
+    .when('/devarticle', {
+      templateUrl: '/views/templates/devarticle.html',
+      controller: 'DevArticleController'
+    })
     .otherwise({
       redirectTo: 'techprofile'
     });

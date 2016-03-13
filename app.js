@@ -5,6 +5,7 @@ var path = require('path');
 var devModule = require('./routes/devmodule');
 var techModule = require('./routes/techmodule');
 var searchModule = require('./routes/searchmodule');
+var articleModule = require('./routes/articlemodule');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/devprof', devModule);
 app.use('/techprof', techModule);
 app.use('/search', searchModule);
+app.use('/article', articleModule);
 
 app.get('/*', function(req, res) {
   var file = req.params[0] || '/views/index.html';
