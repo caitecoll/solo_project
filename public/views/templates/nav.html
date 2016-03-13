@@ -1,13 +1,17 @@
-<div ng-controller="SearchController" class="row topNavlist twelve columns">
+<div ng-controller="SearchController" class="topNavlist">
+    <h1>jarpile</h1>
     <ul>
-        <li class="navlink"><a href="#techprofile" class="navItem">Tech Profiles</a></li>
-        <li class="navlink"><a href="#devprofile" class="navItem">Developer Profiles</a></li>
+        <li class="navlink"><a href="#techprofile">TECH</a></li>
+        <li class="navlink"><a href="#devprofile">PEOPLE</a></li>
     </ul>
-    <input class="search" ng-model="searchText" ng-change="change(text)" placeholder="Search Articles" />
-    <ul ng-show="articles.length >= 1" class="searchResults searchList">
+    <div class="searchBox">
+        <img src="../../img/search.svg"/>
+        <input ng-model="searchText" ng-change="change(text)" placeholder="Search Articles" />
+    </div>
+    <ul ng-show="articles.length >= 1" class="searchResults">
         <li ng-repeat="article in articles"><a class="result" ng-click="selectResult(article.id)">{{article.article_title}}</a></li>
     </ul>
-    <ul ng-show="searchText.length > 1 && articles.length < 1" class="searchResults" class="searchList">
+    <ul ng-show="searchText.length > 1 && articles.length < 1" class="searchResults">
         <li>No Results</li>
     </ul>
 

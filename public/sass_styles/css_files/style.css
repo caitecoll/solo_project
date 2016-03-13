@@ -1,30 +1,72 @@
-a {
-  color: black; }
+body {
+  background-color: #f9f9f9; }
+  body a {
+    color: black; }
+
+.header {
+  position: fixed;
+  width: 100%;
+  opacity: 1;
+  z-index: 2;
+  height: 60px;
+  top: 0;
+  left: 0;
+  background-color: #66c0b7;
+  font-family: 'Muli', sans-serif; }
+
+.navlink {
+  font-size: 18px;
+  display: inline-block;
+  list-style-type: none;
+  padding: 0 10px;
+  position: relative; }
+  .navlink a {
+    text-decoration: none;
+    color: white; }
+
+@media (min-width: 1340px) {
+  .topNavlist {
+    width: 1220px; } }
+@media (min-width: 992px) {
+  .container {
+    width: 960px; } }
+*:focus {
+  outline: none; }
+
+.searchBox {
+  margin-top: 13px;
+  display: inline-block;
+  float: right;
+  border-bottom: solid white 2px; }
+  .searchBox img {
+    height: 20px;
+    margin-top: 4px; }
 
 .topNavlist {
-  position: absolute;
-  height: 50px;
-  z-index: 2;
-  line-height: 30px;
-  margin: 0 auto 15px auto;
-  padding-top: 10px;
-  text-align: left;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  background-color: #66c0b7; }
-  .topNavlist .navlink {
-    font-size: 24px;
-    display: inline;
-    list-style-type: none;
-    padding-top: 7px; }
+  margin: 0 auto; }
+  .topNavlist h1 {
+    font-family: 'Muli', sans-serif;
+    display: inline-block;
+    margin: 0;
+    font-size: 42px;
+    padding-top: 2px; }
   .topNavlist ul {
-    display: inline; }
-  .topNavlist .search {
+    display: inline-block;
+    margin-top: 19.5px;
+    vertical-align: top; }
+  .topNavlist input {
     float: right;
     margin-right: 10px;
-    margin-top: 4px;
     margin-bottom: 0;
-    width: 300px; }
+    width: 300px;
+    display: inline-block;
+    border: none;
+    height: 25px;
+    background-color: #66c0b7;
+    padding-left: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: white; }
   .topNavlist .searchResults {
     float: right;
     margin-right: 10px;
@@ -38,12 +80,6 @@ a {
     border: solid black 1px; }
     .topNavlist .searchResults li {
       margin-bottom: 0; }
-
-.navItem {
-  text-decoration: none;
-  color: white;
-  height: 100%;
-  padding: 10px 20px 10px 20px; }
 
 .mainimg {
   display: inline-block;
@@ -111,5 +147,19 @@ h3 {
 
 .result {
   color: black; }
+
+::-webkit-input-placeholder {
+  color: white; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: white; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white; }
+
+:-ms-input-placeholder {
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */
