@@ -1,14 +1,22 @@
 <div class="twelve columns">
     <div class="featured three columns">
-        <div ng-repeat="profile in featTechProfiles" class="row">
-            <h4>Featured Article:</h4>
-            <p>{{profile.article_title}}</p>
-            <p>{{profile.article_blurb}}</p>
+        <div class="sidebar">
+            <div class="sidebarHeader">
+                <h4>Top Picks</h4>
+            </div>
+            <div class="featuredProfiles">
+                <div ng-repeat="profile in featTechProfiles" class=" singlefeatured row">
+                    <img src="https://unsplash.it/200" class="one-third column"/>
+                    <div class="two-thirds column blurb">
+                        <a>{{profile.article_blurb}}</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="one column"></div>
     <div class="indivProfile eight columns" ng-repeat="profile in techProfiles">
-        <div class="postTopper">
+        <div class="postTopper row">
             <div class="share">
                 <a><i class="fa fa-share"></i>Share</a>
             </div>
@@ -28,19 +36,19 @@
                     <h2><a ng-click="selectArticle(profile.id)">{{profile.article_title}}</a></h2>
                 </div>
                 <div class="row">
-                    <!--<img class="mainimg" ng-src="../../img/{{profile.article_photo}}" />-->
+                    <img class="mainimg" src="https://unsplash.it/700/200/?random" />
                 </div>
                 <div class="row">
-                    <p>By {{profile.first_name}} {{profile.last_name}}</p>
-                    <p>Date {{profile.last_modified}}</p>
+                    <p class="author">By {{profile.first_name}} {{profile.last_name}}</p>
+                    <p class="date">{{profile.last_modified | date:'EEEE, MMMM d, y'}}</p>
                 </div>
             </div>
             <div class="profilebody">
                 <div class="row">
                     <nav class="jargonator">
                         <ul class="tabs">
-                            <li class="active"><a href="" ng-click="showme=false">Just the Facts</a></li>
-                            <li><a href="" ng-click="showme=true">Add Jargon</a></li>
+                            <li ng-class="active"><a href="" ng-click="showme=false; changeClass($event)">Just the Facts</a></li>
+                            <li ng-class=""><a href="" ng-click="showme=true; changeClass($event)">Add Jargon</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -71,8 +79,8 @@
                     <p>Essential Terminology {{profile.terms}}</p>
                 </div>
                 <div class="row">
-                    <img ng-src="../../img/{{profile.photo}}" width="75px"/>
-                    <p>About {{profile.first_name}}: {{profile.bio}}</p>
+                    <img ng-src="../../img/{{profile.photo}}" width="75px" class="two columns"/>
+                    <p class="ten columns">About {{profile.first_name}}: {{profile.bio}}</p>
                 </div>
             </div>
         </div>
