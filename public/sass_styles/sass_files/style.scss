@@ -3,6 +3,7 @@
 $siteWidth: 680px;
 $navHeight: 34px;
 $navBackgroundColor: #759aaf;
+$anchorColor: #929292;
 
 
 body {
@@ -24,6 +25,7 @@ body {
   font-family: 'Muli', sans-serif;
 }
 
+
 .navlink {
   font-size: 18px;
   display: inline-block;
@@ -31,6 +33,8 @@ body {
   padding: 0 10px;
   //padding-top: 7px;
   position: relative;
+  text-align: center;
+  //width: 80px;
   a {
     text-decoration: none;
     color: white;
@@ -38,15 +42,13 @@ body {
   }
 }
 
+.navlink:hover {
+  border-bottom: solid white 2px;
+}
+
 @media (min-width: 1340px) {
   .topNavlist {
     width: 1220px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    width: 960px;
   }
 }
 
@@ -65,8 +67,15 @@ body {
   }
 }
 
+.container {
+  max-width: 1340px;
+  padding: 30px 15px 20px 15px;
+  margin: 0 auto;
+}
+
 .topNavlist {
   margin: 0 auto;
+  height: 100%;
   h1 {
     font-family: 'Muli', sans-serif;
     display: inline-block;
@@ -76,14 +85,16 @@ body {
   }
   ul {
     display: inline-block;
-    margin-top: 19.5px;
+    padding-top: 19.5px;
+    margin: 0 0 0 30px;
     vertical-align: top;
+    height: 100%;
   }
   input {
     float: right;
     margin-right: 10px;
     margin-bottom: 0;
-    width: 300px;
+    width: 200px;
     display: inline-block;
     border: none;
     height: 25px;
@@ -121,14 +132,74 @@ body {
   margin-top: 80px;
 }
 
+.postTopper {
+  zoom: 1;
+  height: 48px;
+  top: 59px;
+  background: #fff;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.share {
+  float: left;
+  display: block;
+  border-right: 1px solid #d7d7d7;
+  //height: 100%;
+  padding: 10px 20px 10px;
+  a {
+    color: #929292;
+    i {
+      padding-right: 7px;
+    }
+  }
+}
+
+.share:hover {
+  a {
+    color: darken($anchorColor, 30%);
+    //color: black;
+  }
+}
+
 h3 {
   display: inline;
 }
 
+.indivProfile {
+  zoom: 1;
+  margin: 20px 0;
+  padding: 0;
+  background: #ffffff;
+  border: 1px solid #d7d7d7;
+  float: right;
+}
+
 .techprofile, .devprofile {
-  border-bottom: solid black 1px;
-  padding-top: 30px;
-  padding-bottom: 20px;
+  display: inline-block;
+  //float: right;
+  padding: 0;
+  //max-width: 685px;
+  max-width: 685px;
+  margin: 40px;
+}
+
+.profileheading {
+  zoom: 1;
+  height: auto;
+  overflow: hidden;
+  margin: 20px 20px 0 20px;
+}
+
+.profilebody {
+  zoom: 1;
+  height: auto;
+  overflow: hidden;
+  margin: 20px 20px 0 20px;
+}
+
+.featured {
+  position: fixed;
+  display: inline-block;
 }
 
 .jargonator {
@@ -178,8 +249,6 @@ h3 {
     text-shadow: none;
     @include box-shadow(0 2px white, 0 0 2px rgba(black, .2));
   }
-
-  .active a.icon, a.icon:active { > span { background-position: 0 -16px; } }
 }
 
 .result {

@@ -11,11 +11,10 @@
     <script type="text/javascript" src="../scripts/controllers/searchcontroller.js"></script>
     <script type="text/javascript" src="../scripts/controllers/articlecontroller.js"></script>
     <script type="text/javascript" src="../scripts/controllers/devarticlecontroller.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../vendors/normalize.css" />
-    <!--<link rel="stylesheet" href="../vendors/skeleton.css" />-->
+    <link rel="stylesheet" href="../vendors/skeleton.css" />
     <link rel="stylesheet" href="../sass_styles/css_files/style.css" />
-
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 
     <title>Title</title>
@@ -23,9 +22,9 @@
 <body ng-app="myApp">
     <div ng-include="'views/templates/nav.html'" class="header"></div>
 
-    <div class="container offset-by-two twelve columns">
-        <div class="row mainContent">
-            <main ng-view class="twelve columns"></main>
+    <div class="container">
+        <div class="mainContent">
+            <main ng-view></main>
         </div>
     </div>
 </body>
