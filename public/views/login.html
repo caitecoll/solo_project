@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="../vendors/angular.min.js"></script>
+        <script type="text/javascript" src="../vendors/angular-route.min.js"></script>
+        <script type="text/javascript" src="../scripts/app.js"></script>
+
+        <link rel="stylesheet" href="../vendors/normalize.css" />
+        <link rel="stylesheet" href="../vendors/skeleton.css" />
+        <link rel="stylesheet" href="../sass_styles/css_files/style.css" />
+        <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+
+        <title>Admin Log-in</title>
+    </head>
+
+    <body ng-app="loginApp">
+        <div ng-include="'views/admin_templates/loginnav.html'" class="header"></div>
+
+        <div class="container">
+            <div class="login-container">
+                <h1>User Login</h1>
+
+                <form action="/" method="post">
+                    <div>
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" id="username"/>
+                    </div>
+                    <div>
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password"/>
+                    </div>
+                    <div>
+                        <input type="submit" value="Log In"/>
+                        <button href="/register">Register</button>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </body>
+</html>

@@ -2,7 +2,7 @@
 -- Create command for author table
 CREATE TABLE authors
 (
-  id serial PRIMARY KEY,
+  author_id serial PRIMARY KEY,
   first_name varchar(255),
   last_name varchar(255),
   twitter varchar(255),
@@ -63,4 +63,12 @@ CREATE TABLE tech_profiles
   j_controversy text,
   terms text,
   additional_resources text
+);
+
+CREATE TABLE users (
+ id SERIAL PRIMARY KEY,
+ username VARCHAR(100) NOT NULL UNIQUE,
+ role VARCHAR(100),
+ author_id int REFERENCES authors (author_id),
+ password VARCHAR(120) NOT NULL
 );

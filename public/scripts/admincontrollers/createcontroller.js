@@ -1,4 +1,4 @@
-adminApp.controller('CreateController', ['$scope', '$location', '$http', 'AdminFactory', function($scope, $location, $http, AdminFactory) {
+myApp.controller('CreateController', ['$scope', '$location', '$http', 'AdminFactory', function($scope, $location, $http, AdminFactory) {
 
   //$scope.adminFactory = AdminFactory;
   //$scope.articles = [];

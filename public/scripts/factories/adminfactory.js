@@ -1,4 +1,4 @@
-adminApp.factory('AdminFactory', ['$http', function($http) {
+myApp.factory('AdminFactory', ['$http', function($http) {
 
   var allTechPosts = [];
   var allDevPosts = [];

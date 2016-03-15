@@ -1,4 +1,4 @@
-adminApp.controller('AllArticlesController', ['$scope', '$location', '$http', 'AdminFactory', function($scope, $location, $http, AdminFactory) {
+myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$http', 'AdminFactory', function($scope, $location, $window, $http, AdminFactory) {
 
   $scope.adminFactory = AdminFactory;
   $scope.techArticles = [];
@@ -51,6 +51,12 @@ adminApp.controller('AllArticlesController', ['$scope', '$location', '$http', 'A
   $scope.Review = function(id) {
     $scope.adminFactory.factoryGetPostId(id);
     $location.path('review');
+  };
+
+  $scope.logout = function() {
+    $http.get('/logout').then(function(){
+      $window.location.href = '/#/techprofile';
+    });
   };
 
 }]);

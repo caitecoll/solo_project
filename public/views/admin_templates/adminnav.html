@@ -1,18 +1,10 @@
-<div class="topNavlist">
+<div ng-controller="AllArticlesController"  class="topNavlist">
     <h1>jarpile</h1>
     <ul class="navHolder">
         <li class="navlink"><a href="#allarticles">VIEW ALL ARTICLES</a></li>
         <li class="navlink"><a href="#create">CREATE NEW ARTICLE</a></li>
     </ul>
-    <!--<div class="searchBox">-->
-        <!--<img src="../../img/search.svg"/>-->
-        <!--<input ng-model="searchText" ng-change="change(text)" placeholder="Search Articles" />-->
-    <!--</div>-->
-    <!--<ul ng-show="articles.length >= 1" class="searchResults">-->
-        <!--<li ng-repeat="article in articles"><a class="result" ng-click="selectResult(article.id)">{{article.article_title}}</a></li>-->
-    <!--</ul>-->
-    <!--<ul ng-show="searchText.length > 1 && articles.length < 1" class="searchResults">-->
-        <!--<li>No Results</li>-->
-    <!--</ul>-->
-    <div class="login"><a href="../admin.html"><i class="fa fa-user"></i>Admin Logout</a></div>
+    <div class="login">
+        <a ng-click="logout()" href=""><i class="fa fa-user"></i>Admin Logout</a>
+    </div>
 </div>

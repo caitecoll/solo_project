@@ -20,21 +20,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/templates/devarticle.html',
       controller: 'DevArticleController'
     })
-    .otherwise({
-      redirectTo: 'techprofile'
-    });
-
-}]);
-
-var adminApp = angular.module('adminApp', ['ngRoute']);
-
-adminApp.config(['$routeProvider', function($routeProvider) {
-
-  $routeProvider
-    .when('/login', {
-      templateUrl: '/views/admin_templates/login.html',
-      controller: 'LoginController'
-    })
     .when('/allarticles', {
       templateUrl: '/views/admin_templates/allarticles.html',
       controller: 'AllArticlesController'
@@ -48,7 +33,24 @@ adminApp.config(['$routeProvider', function($routeProvider) {
       controller: 'ReviewController'
     })
     .otherwise({
-      redirectTo: 'allarticles'
+      redirectTo: 'techprofile'
     });
 
+}]);
+
+var loginApp = angular.module('loginApp', []);
+
+loginApp.controller('LoginController', ['$scope', '$http', '$window', function($scope, $http, $window) {
+  $scope.userName;
+
+  // This happens after page load, which means it has authenticated if it was ever going to
+  // NOT SECURE
+  $http.get('/user').then(function(response) {
+    if(response.data) {
+      $scope.userName = response.data.username;
+      console.log('User Data: ', $scope.userName);
+    } else {
+      $window.location.href = '/login.html';
+    }
+  });
 }]);
