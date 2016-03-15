@@ -262,7 +262,7 @@ h3 {
   > li {
     float: left;
     margin-right: 3px;
-    width: 140px;
+    min-width: 140px;
     text-align: center;
   }
 
@@ -292,6 +292,23 @@ h3 {
 
 .result {
   color: black;
+}
+
+.login {
+  //display: inline-block;
+  padding: 0;
+  a {
+    float: right;
+    margin: 0;
+    color: #d7d7d7;
+    i {
+      padding-right: 3px;
+    }
+  }
+}
+
+label {
+  display: inline-block;
 }
 
 ::-webkit-input-placeholder {

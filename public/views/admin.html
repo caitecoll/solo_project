@@ -2,31 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <script type="text/javascript" src="../vendors/angular.min.js"></script>
     <script type="text/javascript" src="../vendors/angular-route.min.js"></script>
     <script type="text/javascript" src="../scripts/app.js"></script>
-    <script type="text/javascript" src="../scripts/factories/contentfactory.js"></script>
-    <script type="text/javascript" src="../scripts/controllers/devprofcontroller.js"></script>
-    <script type="text/javascript" src="../scripts/controllers/techprofcontroller.js"></script>
-    <script type="text/javascript" src="../scripts/controllers/searchcontroller.js"></script>
-    <script type="text/javascript" src="../scripts/controllers/articlecontroller.js"></script>
-    <script type="text/javascript" src="../scripts/controllers/devarticlecontroller.js"></script>
+    <script type="text/javascript" src="../scripts/factories/adminfactory.js"></script>
+    <script type="text/javascript" src="../scripts/admincontrollers/allarticlescontroller.js"></script>
+    <script type="text/javascript" src="../scripts/admincontrollers/createcontroller.js"></script>
+    <script type="text/javascript" src="../scripts/admincontrollers/reviewcontroller.js"></script>
+    <script type="text/javascript" src="../scripts/admincontrollers/logincontroller.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../vendors/normalize.css" />
     <link rel="stylesheet" href="../vendors/skeleton.css" />
     <link rel="stylesheet" href="../sass_styles/css_files/style.css" />
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 
-    <title>jarpile</title>
+    <title>Admin Log-in</title>
 </head>
-<body ng-app="myApp">
-    <div ng-include="'views/templates/nav.html'" class="header"></div>
-    <!--<div class="login"><a href="#devprofile"><i class="fa fa-user"></i>Admin Login</a></div>-->
+<body ng-app="adminApp">
+    <div ng-include="'views/admin_templates/adminnav.html'" class="header"></div>
 
     <div class="container">
         <div class="mainContent">
             <main ng-view></main>
         </div>
     </div>
+
 </body>
 </html>

@@ -7,16 +7,10 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var pg = require('pg');
 var app = express();
-var connectionString = '';
+var connection = require('../modules/connection');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
-if (process.env.DATABASE_URL !== undefined) {
-  connectionString = process.env.DATABASE_URL + 'ssl';
-} else {
-  connectionString = 'postgres://localhost:5432/SoloProject';
-}
 
 router.get('/:query', function(req, res) {
   var results = [];
@@ -25,7 +19,7 @@ router.get('/:query', function(req, res) {
     search: '% ' + req.params.query + '%'
   };
 
-  pg.connect(connectionString, function (err, client, done) {
+  pg.connect(connection, function (err, client, done) {
     var query = client.query("SELECT article_title, id FROM tech_profiles WHERE article_title ILIKE $1 OR article_blurb ILIKE $1 " +
       "OR nj_what ILIKE $1 OR nj_why ILIKE $1 OR nj_how_new_dev ILIKE $1 OR nj_how_exp_dev ILIKE $1 OR nj_how_sr_dev ILIKE $1 OR " +
       "nj_controversy ILIKE $1 OR j_what ILIKE $1 OR j_why ILIKE $1 OR j_how_new_dev ILIKE $1 OR j_how_exp_dev ILIKE $1 OR " +

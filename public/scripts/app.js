@@ -25,3 +25,30 @@ myApp.config(['$routeProvider', function($routeProvider) {
     });
 
 }]);
+
+var adminApp = angular.module('adminApp', ['ngRoute']);
+
+adminApp.config(['$routeProvider', function($routeProvider) {
+
+  $routeProvider
+    .when('/login', {
+      templateUrl: '/views/admin_templates/login.html',
+      controller: 'LoginController'
+    })
+    .when('/allarticles', {
+      templateUrl: '/views/admin_templates/allarticles.html',
+      controller: 'AllArticlesController'
+    })
+    .when('/create', {
+      templateUrl: '/views/admin_templates/create.html',
+      controller: 'CreateController'
+    })
+    .when('/review', {
+      templateUrl: '/views/admin_templates/review.html',
+      controller: 'ReviewController'
+    })
+    .otherwise({
+      redirectTo: 'allarticles'
+    });
+
+}]);
