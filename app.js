@@ -16,6 +16,7 @@ var searchModule = require('./routes/searchmodule');
 var articleModule = require('./routes/articlemodule');
 var allArticlesModule = require('./routes/allarticlesmodule');
 var logout = require('./routes/logout');
+var review = require('./routes/reviewmodule');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -42,7 +43,8 @@ app.use('/techprof', techModule);
 app.use('/search', searchModule);
 app.use('/article', articleModule);
 app.use('/allarticles', allArticlesModule);
-app.use('/logout',logout)
+app.use('/logout',logout);
+app.use('/review',review);
 
 app.use(express.static('public'));
 app.use(express.static('public/views'));

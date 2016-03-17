@@ -1,10 +1,22 @@
 myApp.controller('ReviewController', ['$scope', '$location', '$http', 'AdminFactory', function($scope, $location, $http, AdminFactory) {
 
   $scope.adminFactory = AdminFactory;
-  $scope.articles = [];
+  $scope.drafts = [];
+  $scope.showme;
 
-  //$scope.contentFactory.factoryGetSelectedArticle().then(function() {
-  //  $scope.articles = $scope.contentFactory.factorySelectedPost();
-  //});
+  $scope.activeArticle = $scope.adminFactory.factoryViewId();
+
+  if ($scope.activeArticle >= 5000) {
+    $scope.adminFactory.factoryGetSelectedDevDraft().then(function() {
+      $scope.drafts = $scope.adminFactory.factorySelectedDevDraft();
+      $scope.showme = false;
+    });
+  } else {
+    $scope.adminFactory.factoryGetSelectedDraft().then(function() {
+      $scope.drafts = $scope.adminFactory.factorySelectedDraft();
+      $scope.showme = true;
+    });
+  }
+
 
 }]);

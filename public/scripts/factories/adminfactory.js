@@ -3,7 +3,8 @@ myApp.factory('AdminFactory', ['$http', function($http) {
   var allTechPosts = [];
   var allDevPosts = [];
   var selectedArticleId;
-  var selectedArticleData;
+  var selectedDraftData;
+  var selectedDevDraftData;
   var userName;
   var role;
   var author_id;
@@ -125,6 +126,26 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     });
   };
 
+  var getSelectedDraft = function() {
+    console.log('This is the selected ID');
+    var promise = $http.get('/review/tech/' + selectedArticleId).then(function(response) {
+      console.log('This is the response', response.data);
+      selectedDraftData = response.data;
+      console.log('This is the draft', selectedDraftData);
+    });
+    return promise;
+  };
+
+  var getSelectedDevDraft = function() {
+    console.log('This is the selected ID', selectedArticleId);
+    var promise = $http.get('/review/dev/' + selectedArticleId).then(function(response) {
+      console.log('This is the response', response.data);
+      selectedDevDraftData = response.data;
+      console.log('This is the draft', selectedDevDraftData);
+    });
+    return promise;
+  };
+
   var publicFunctions = {
     factorySaveTechArticle: function(article) {
       return saveTechArticle(article);
@@ -157,6 +178,9 @@ myApp.factory('AdminFactory', ['$http', function($http) {
       selectedArticleId = id;
       return selectedArticleId;
     },
+    factoryViewId:function(){
+      return selectedArticleId;
+    },
     factoryUnpublishDev: function() {
       return unpublishDev();
     },
@@ -183,6 +207,18 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     },
     factoryGetAuthor: function() {
       return author_id;
+    },
+    factoryGetSelectedDraft: function() {
+      return getSelectedDraft();
+    },
+    factorySelectedDraft: function() {
+      return selectedDraftData;
+    },
+    factoryGetSelectedDevDraft: function() {
+      return getSelectedDevDraft();
+    },
+    factorySelectedDevDraft: function() {
+      return selectedDevDraftData;
     }
   };
 
