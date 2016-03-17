@@ -17,10 +17,11 @@
             <td>{{dev.last_modified | date:'EEEE, MMMM d, y'}}</td>
             <td>{{dev.featured}}</td>
             <td>{{dev.status}}</td>
-            <td ng-show="dev.status == 'Published'"><button ng-click="unPublish(dev.id, dev.status)">UnPublish</button></td>
-            <td ng-show="dev.status == 'Approved'"><button ng-click="Publish(dev.id, dev.status)">Publish</button></td>
-            <td ng-show="dev.status == 'Awaiting Admin Approval'"><button ng-click="Review(dev.id)">Review</button></td>
-            <td ng-show="dev.status == 'Awaiting Author Approval'"><button ng-click="Review(dev.id)">Review</button></td>
+            <td ng-show="role == 'Admin' && dev.status == 'Published'"><button ng-click="unPublish(dev.id, dev.status)">UnPublish</button></td>
+            <td ng-show="role == 'Admin' && dev.status == 'Approved'"><button ng-click="Publish(dev.id, dev.status)">Publish</button></td>
+            <td ng-show="role == 'Admin' && dev.status == 'Awaiting Admin Approval'"><button ng-click="Review(dev.id)">Review</button></td>
+            <td ng-show="role == 'Admin' && dev.status == 'Awaiting Author Approval'"><button ng-click="Review(dev.id)">Review</button></td>
+            <td ng-show="role == 'Author'"><button ng-click="Edit(dev.id)">Edit</button></td>
         </tr>
     </table>
     <h3>Tech Profiles</h3>
@@ -41,10 +42,11 @@
             <td>{{tech.last_modified | date:'EEEE, MMMM d, y'}}</td>
             <td>{{tech.featured}}</td>
             <td>{{tech.status}}</td>
-            <td ng-show="tech.status == 'Published'" ><button ng-click="unPublish(tech.id, tech.status)">UnPublish</button></td>
-            <td ng-show="tech.status == 'Approved'" ><button ng-click="Publish(tech.id, tech.status)">Publish</button></td>
-            <td ng-show="tech.status == 'Awaiting Admin Approval'" ><button ng-click="Review(tech.id)">Review</button></td>
-            <td ng-show="tech.status == 'Awaiting Author Approval'" ><button ng-click="Review(tech.id)">Review</button></td>
+            <td ng-show="role == 'Admin' && tech.status == 'Published'" ><button ng-click="unPublish(tech.id, tech.status)">UnPublish</button></td>
+            <td ng-show="role == 'Admin' && tech.status == 'Approved'" ><button ng-click="Publish(tech.id, tech.status)">Publish</button></td>
+            <td ng-show="role == 'Admin' && tech.status == 'Awaiting Admin Approval'" ><button ng-click="Review(tech.id)">Review</button></td>
+            <td ng-show="role == 'Admin' && tech.status == 'Awaiting Author Approval'" ><button ng-click="Review(tech.id)">Review</button></td>
+            <td ng-show="role == 'Author'"><button ng-click="Edit(tech.id)">Edit</button></td>
         </tr>
     </table>
 </div>

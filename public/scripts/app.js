@@ -55,6 +55,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/admin_templates/review.html',
       controller: 'ReviewController'
     })
+    .when('/edit', {
+      templateUrl: '/views/admin_templates/edit.html',
+      controller: 'EditController'
+    })
     .otherwise({
       redirectTo: 'techprofile'
     });

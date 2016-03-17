@@ -45,16 +45,6 @@ myApp.factory('AdminFactory', ['$http', function($http) {
 
   //checkLogged();
 
-  //var checkRole = function() {
-  //  if(role == 'Admin') {
-  //    getAllDev();
-  //    getAllTech();
-  //  } else {
-  //    getMyDev();
-  //    getMyTech();
-  //  }
-  //};
-
   var saveTechArticle = function(article) {
     $http.post('/techprof', article).then(function(response) {
     });

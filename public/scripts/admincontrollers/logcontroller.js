@@ -29,7 +29,9 @@ myApp.controller('LogController', ['$scope', '$location', '$http', '$window', 'A
     } else if ($scope.role == 'Author') {
       $scope.admin = false;
       $scope.adminFactory.factoryGetMyTechArticles().then(function() {
-        $scope.techArticles = $scope.adminFactory.factoryMyTechPosts()});
+        $scope.techArticles = $scope.adminFactory.factoryMyTechPosts();
+        console.log('These are the techArticles', $scope.techArticles);
+      });
       $scope.adminFactory.factoryGetMyDevArticles().then(function() {
         $scope.devArticles = $scope.adminFactory.factoryMyDevPosts();
         console.log('These are the devArticles', $scope.devArticles);

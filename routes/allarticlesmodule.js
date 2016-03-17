@@ -55,7 +55,7 @@ router.get('/alldev', function(req, res) {
   });
 });
 
-router.get('/alldev/:id', function(req, res) {
+router.get('/mydev/:id', function(req, res) {
   var results = [];
 
   var author = {
@@ -82,7 +82,7 @@ router.get('/alldev/:id', function(req, res) {
   });
 });
 
-router.get('/alltech/:id', function(req, res) {
+router.get('/mytech/:id', function(req, res) {
   var results = [];
 
   var author = {
