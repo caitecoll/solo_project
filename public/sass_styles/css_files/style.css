@@ -226,6 +226,17 @@ h3 {
     .login a i {
       padding-right: 3px; }
 
+.adminlogin {
+  display: inline-block;
+  float: right;
+  padding-top: 20px; }
+  .adminlogin a {
+    float: right;
+    margin: 0;
+    color: white; }
+    .adminlogin a i {
+      padding-right: 3px; }
+
 label {
   display: inline-block; }
 
