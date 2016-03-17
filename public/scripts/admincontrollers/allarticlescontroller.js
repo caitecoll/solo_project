@@ -1,16 +1,27 @@
-myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$http', 'AdminFactory', function($scope, $location, $window, $http, AdminFactory) {
+myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$http', 'AdminFactory',
+  function($scope, $location, $window, $http, AdminFactory) {
 
   $scope.adminFactory = AdminFactory;
   $scope.techArticles = [];
   $scope.devArticles = [];
+  //$scope.authFact = AuthenticationFactory;
 
-  $scope.adminFactory.factoryGetTechArticles().then(function() {
-    $scope.techArticles = $scope.adminFactory.factoryTechPosts();
-  });
+  //$scope.adminFactory.factoryCheckLogged().then(function() {
+  //  $scope.adminFactory.factoryCheckRole();
+  //});
 
-  $scope.adminFactory.factoryGetDevArticles().then(function() {
-    $scope.devArticles = $scope.adminFactory.factoryDevPosts();
-  });
+    //.then(function() {
+    //  $scope.techArticles = $scope.adminFactory.factoryTechPosts();
+    //  $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+    //});
+
+  //$scope.adminFactory.factoryGetTechArticles().then(function() {
+  //  $scope.techArticles = $scope.adminFactory.factoryTechPosts();
+  //});
+  //
+  //$scope.adminFactory.factoryGetDevArticles().then(function() {
+  //  $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+  //});
 
   $scope.unPublish = function(id, status) {
     if (id >= 5000) {
@@ -21,13 +32,15 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
       $scope.adminFactory.factoryUnpublishTech();
     }
 
-    $scope.adminFactory.factoryGetTechArticles().then(function() {
-      $scope.techArticles = $scope.adminFactory.factoryTechPosts();
-    });
+    $scope.adminFactory.factoryCheckRole();
 
-    $scope.adminFactory.factoryGetDevArticles().then(function() {
-      $scope.devArticles = $scope.adminFactory.factoryDevPosts();
-    });
+    //$scope.adminFactory.factoryGetTechArticles().then(function() {
+    //  $scope.techArticles = $scope.adminFactory.factoryTechPosts();
+    //});
+    //
+    //$scope.adminFactory.factoryGetDevArticles().then(function() {
+    //  $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+    //});
   };
 
   $scope.Publish = function(id, status) {
@@ -39,24 +52,20 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
       $scope.adminFactory.factoryPublishTech();
     }
 
-    $scope.adminFactory.factoryGetTechArticles().then(function() {
-      $scope.techArticles = $scope.adminFactory.factoryTechPosts();
-    });
+    $scope.adminFactory.factoryCheckRole();
 
-    $scope.adminFactory.factoryGetDevArticles().then(function() {
-      $scope.devArticles = $scope.adminFactory.factoryDevPosts();
-    });
+    //$scope.adminFactory.factoryGetTechArticles().then(function() {
+    //  $scope.techArticles = $scope.adminFactory.factoryTechPosts();
+    //});
+    //
+    //$scope.adminFactory.factoryGetDevArticles().then(function() {
+    //  $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+    //});
   };
 
   $scope.Review = function(id) {
     $scope.adminFactory.factoryGetPostId(id);
     $location.path('review');
-  };
-
-  $scope.logout = function() {
-    $http.get('/logout').then(function(){
-      $window.location.href = '/#/techprofile';
-    });
   };
 
 }]);

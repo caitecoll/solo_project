@@ -10,9 +10,19 @@ router.get('/', function(req, res) {
         res.send(req.user);
     } else {
         // failure best handled on the server. do redirect here.
-        res.send(false);
+        res.send(401);
     }
 });
+
+//router.get('/admin', function(req, res) {
+//    if(req.body.role == 'admin') {
+//        // check if admin
+//        res.send(req.user);
+//    } else {
+//        // not sure what to do here?
+//        res.send(false);
+//    }
+//});
 
 
 module.exports = router;

@@ -3,6 +3,26 @@ var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.config(['$routeProvider', function($routeProvider) {
 
+  //var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
+  //  var deferred = $q.defer();
+  //  // Make an AJAX call to check if the user is logged in
+  //
+  //  $http.get('/user').success(function(user){
+  //
+  //    // Authenticated
+  //    if (user !== '0') {
+  //      deferred.resolve();
+  //    }
+  //    else {
+  //      $rootScope.message = 'You need to log in.';
+  //      deferred.reject();
+  //      $window.location.href = '/login.html';
+  //    }
+  //  });
+  //
+  //  return deferred.promise;
+  //};
+
   $routeProvider
     .when('/techprofile', {
       templateUrl: '/views/templates/techprofile.html',
@@ -23,6 +43,9 @@ myApp.config(['$routeProvider', function($routeProvider) {
     .when('/allarticles', {
       templateUrl: '/views/admin_templates/allarticles.html',
       controller: 'AllArticlesController'
+      //resolve: {
+      //  loggedin: factoryCheckLoggedIn
+      //}
     })
     .when('/create', {
       templateUrl: '/views/admin_templates/create.html',

@@ -30,7 +30,7 @@ passport.deserializeUser(function(id, done) {
 
     // Handle Errors
     if (err) {
-      console.log(err);
+      console.log('First possible error, ', err);
     }
   });
 });
@@ -44,11 +44,12 @@ passport.use('local', new localStrategy({
       console.log('called local - pg');
       var user = {};
       var query = client.query("SELECT * FROM users WHERE username = $1", [username]);
+      console.log(query);
 
       query.on('row', function (row) {
         console.log('User obj', row);
         user = row;
-
+        console.log("Here: ", row);
         // Hash and compare
         if(encryptLib.comparePassword(password, user.password)) {
           // all good!
@@ -63,12 +64,13 @@ passport.use('local', new localStrategy({
 
       // After all data is returned, close connection and return results
       query.on('end', function () {
+        console.log("end");
         client.end();
       });
 
       // Handle Errors
       if (err) {
-        console.log(err);
+        console.log('Second Possible error', err);
       }
     });
   }

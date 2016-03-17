@@ -4,6 +4,56 @@ myApp.factory('AdminFactory', ['$http', function($http) {
   var allDevPosts = [];
   var selectedArticleId;
   var selectedArticleData;
+  var userName;
+  var role;
+  var author_id;
+
+ var checkLogged = function() {
+    return $http.get('/user').then(function(response) {
+      if(response.data) {
+        userName = response.data.username;
+        role = response.data.role;
+        author_id = response.data.author_id
+        console.log('User Name: ', userName);
+        console.log('User Role: ', role);
+        console.log('Author_id: ', author_id);
+      } else {
+        $window.location.href = '/login.html';
+      }
+    });
+  };
+
+  //var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
+  //  var deferred = $q.defer();
+  //  // Make an AJAX call to check if the user is logged in
+  //
+  //  $http.get('/user').success(function(user){
+  //
+  //    // Authenticated
+  //    if (user !== '0') {
+  //      deferred.resolve();
+  //    }
+  //    else {
+  //      $rootScope.message = 'You need to log in.';
+  //      deferred.reject();
+  //      $window.location.href = '/login.html';
+  //    }
+  //  });
+  //
+  //  return deferred.promise;
+  //};
+
+  //checkLogged();
+
+  //var checkRole = function() {
+  //  if(role == 'Admin') {
+  //    getAllDev();
+  //    getAllTech();
+  //  } else {
+  //    getMyDev();
+  //    getMyTech();
+  //  }
+  //};
 
   var saveTechArticle = function(article) {
     $http.post('/techprof', article).then(function(response) {
@@ -24,6 +74,22 @@ myApp.factory('AdminFactory', ['$http', function($http) {
 
   var getAllDev = function() {
     var promise = $http.get('/allarticles/alldev').then(function(response) {
+      allDevPosts = response.data;
+    });
+    return promise;
+  };
+
+  var getMyTech = function() {
+    console.log('Get My Tech', author_id);
+    var promise = $http.get('/allarticles/mytech/' + author_id).then(function(response) {
+      allTechPosts = response.data;
+    });
+    return promise;
+  };
+
+  var getMyDev = function() {
+    console.log('Get My Dev', author_id);
+    var promise = $http.get('/allarticles/mydev/' + author_id).then(function(response) {
       allDevPosts = response.data;
     });
     return promise;
@@ -85,7 +151,16 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     factoryGetDevArticles: function() {
       return getAllDev();
     },
-    factoryDevPosts: function() {
+    factoryGetMyTechArticles: function() {
+      return getMyTech();
+    },
+    factoryMyTechPosts: function() {
+      return allTechPosts;
+    },
+    factoryGetMyDevArticles: function() {
+      return getMyDev();
+    },
+    factoryMyDevPosts: function() {
       return allDevPosts;
     },
     factoryGetPostId: function(id){
@@ -103,6 +178,18 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     },
     factoryPublishTech: function() {
       return PublishTech();
+    },
+    factoryCheckLogged: function() {
+      return checkLogged();
+    },
+    factoryCheckRole: function() {
+      return checkRole();
+    },
+    factoryCheckLoggedIn: function() {
+      return checkLoggedin;
+    },
+    factorySendRole: function() {
+      return role;
     }
   };
 

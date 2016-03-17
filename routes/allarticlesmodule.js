@@ -55,6 +55,60 @@ router.get('/alldev', function(req, res) {
   });
 });
 
+router.get('/alldev/:id', function(req, res) {
+  var results = [];
+
+  var author = {
+    id: req.params.id
+  }
+
+  pg.connect(connection, function (err, client, done) {
+    var query = client.query('SELECT * FROM developer_profiles JOIN authors ON (developer_profiles.author_id = authors.author_id) ' +
+      'WHERE developer_profiles.author_id = $1 ORDER BY status desc', [author.id]);
+
+    query.on('row', function(row) {
+      results.push(row);
+    });
+
+    query.on('end', function() {
+      client.end();
+      return res.json(results);
+    });
+
+    if(err) {
+      done();
+      console.log(err);
+    }
+  });
+});
+
+router.get('/alltech/:id', function(req, res) {
+  var results = [];
+
+  var author = {
+    id: req.params.id
+  }
+
+  pg.connect(connection, function (err, client, done) {
+    var query = client.query('SELECT * FROM tech_profiles JOIN authors ON (tech_profiles.author_id = authors.author_id) ' +
+      'WHERE tech_profiles.author_id = $1 ORDER BY status desc', [author.id]);
+
+    query.on('row', function(row) {
+      results.push(row);
+    });
+
+    query.on('end', function() {
+      client.end();
+      return res.json(results);
+    });
+
+    if(err) {
+      done();
+      console.log(err);
+    }
+  });
+});
+
 router.put('/devchange/:id', function(req, res){
   console.log(req.body);
 
