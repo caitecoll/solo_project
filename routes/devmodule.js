@@ -58,7 +58,7 @@ router.post('/', function(req, res) {
   var newArticle = {
     article_title: req.body.title,
     article_blurb: req.body.blurb,
-    author_id: req.body.authorId,
+    author_id: req.body.author_id,
     content: req.body.content,
     date_created: 'now()',
     last_modified: 'now()',

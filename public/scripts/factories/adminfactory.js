@@ -13,7 +13,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
       if(response.data) {
         userName = response.data.username;
         role = response.data.role;
-        author_id = response.data.author_id
+        author_id = response.data.author_id;
         console.log('User Name: ', userName);
         console.log('User Role: ', role);
         console.log('Author_id: ', author_id);
@@ -180,6 +180,9 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     },
     factorySendRole: function() {
       return role;
+    },
+    factoryGetAuthor: function() {
+      return author_id;
     }
   };
 

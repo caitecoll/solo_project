@@ -7,14 +7,20 @@ myApp.controller('CreateController', ['$scope', '$location', '$http', 'AdminFact
   //  $scope.articles = $scope.contentFactory.factorySelectedPost();
   //});
 
+  $scope.tab = 0;
+
   $scope.article = {};
   $scope.adminFactory = AdminFactory;
+  $scope.author = $scope.adminFactory.factoryGetAuthor();
+  $scope.showme = false;
 
   $scope.addTechPost = function() {
+    $scope.author = $scope.adminFactory.factoryGetAuthor();
+    console.log('This is the author', $scope.author);
     var article = {
       title: $scope.title,
       blurb: $scope.blurb,
-      authorId: 1,
+      author_id: $scope.author,
       nj_what: $scope.nj_what,
       nj_why: $scope.nj_why,
       nj_how_new_dev: $scope.nj_how_new_dev,
@@ -55,7 +61,7 @@ myApp.controller('CreateController', ['$scope', '$location', '$http', 'AdminFact
     var article = {
       title: $scope.devtitle,
       blurb: $scope.devblurb,
-      authorId: 1,
+      author_id: $scope.author,
       content: $scope.content
     };
 
@@ -64,6 +70,16 @@ myApp.controller('CreateController', ['$scope', '$location', '$http', 'AdminFact
     $scope.devtitle = '';
     $scope.devblurb = '';
     $scope.content = '';
+  };
+
+  $scope.makeFirstActive = function() {
+    $scope.showme = false;
+    $scope.tab = 0;
+  };
+
+  $scope.makeSecondActive = function() {
+    $scope.showme = true;
+    $scope.tab = 1;
   };
 
 

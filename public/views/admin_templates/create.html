@@ -2,8 +2,8 @@
     <div class="row">
         <nav class="jargonator">
             <ul class="tabs">
-                <li><a href="" ng-click="showme=false">New Technology Profile</a></li>
-                <li><a href="" ng-click="showme=true">New Developer Profile</a></li>
+                <li><a href="" ng-click="makeFirstActive()" ng-class="{active: tab===0}">New Technology Profile</a></li>
+                <li><a href="" ng-click="makeSecondActive()" ng-class="{active: tab==1}">New Developer Profile</a></li>
             </ul>
         </nav>
     </div>
