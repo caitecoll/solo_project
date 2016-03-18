@@ -188,6 +188,9 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     factoryTechPosts: function() {
       return allTechPosts;
     },
+    factoryDevPosts: function() {
+      return allDevPosts;
+    },
     factoryGetDevArticles: function() {
       return getAllDev();
     },
@@ -205,6 +208,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     },
     factoryGetPostId: function(id){
       selectedArticleId = id;
+      console.log('This is the selectedArticleID', selectedArticleId);
       return selectedArticleId;
     },
     factoryViewId:function(){

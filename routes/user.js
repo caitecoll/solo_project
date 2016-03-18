@@ -7,6 +7,7 @@ router.get('/', function(req, res) {
     // check if logged in
     if(req.isAuthenticated()) {
         // send back user object from database
+        console.log('user.js get: sending back user', req.user);
         res.send(req.user);
     } else {
         // failure best handled on the server. do redirect here.

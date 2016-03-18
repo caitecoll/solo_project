@@ -1,4 +1,4 @@
-<div ng-controller="LogController">
+<div>
     <h3>Developer Profiles</h3>
     <table style="width:100%">
         <tr>
@@ -19,8 +19,8 @@
             <td>{{dev.status}}</td>
             <td ng-show="role == 'Admin' && dev.status == 'Published'"><button ng-click="unPublish(dev.id, dev.status)">UnPublish</button></td>
             <td ng-show="role == 'Admin' && dev.status == 'Approved'"><button ng-click="Publish(dev.id, dev.status)">Publish</button></td>
-            <td ng-show="role == 'Admin' && dev.status == 'Awaiting Admin Approval'"><button ng-click="Review(dev.id)">Review</button></td>
-            <td ng-show="role == 'Admin' && dev.status == 'Awaiting Author Approval'"><button ng-click="Review(dev.id)">Review</button></td>
+            <td ng-show="role == 'Admin' && dev.status == 'Awaiting Admin Review'"><button ng-click="Review(dev.id)">Review</button></td>
+            <td ng-show="role == 'Admin' && dev.status == 'Awaiting Author Review'"><button ng-click="Review(dev.id)">Review</button></td>
             <td ng-show="role == 'Author'"><button ng-click="Edit(dev.id)">Edit</button></td>
         </tr>
     </table>
@@ -44,8 +44,8 @@
             <td>{{tech.status}}</td>
             <td ng-show="role == 'Admin' && tech.status == 'Published'" ><button ng-click="unPublish(tech.id, tech.status)">UnPublish</button></td>
             <td ng-show="role == 'Admin' && tech.status == 'Approved'" ><button ng-click="Publish(tech.id, tech.status)">Publish</button></td>
-            <td ng-show="role == 'Admin' && tech.status == 'Awaiting Admin Approval'" ><button ng-click="Review(tech.id)">Review</button></td>
-            <td ng-show="role == 'Admin' && tech.status == 'Awaiting Author Approval'" ><button ng-click="Review(tech.id)">Review</button></td>
+            <td ng-show="role == 'Admin' && tech.status == 'Awaiting Admin Review'" ><button ng-click="Review(tech.id)">Review</button></td>
+            <td ng-show="role == 'Admin' && tech.status == 'Awaiting Author Review'" ><button ng-click="Review(tech.id)">Review</button></td>
             <td ng-show="role == 'Author'"><button ng-click="Edit(tech.id)">Edit</button></td>
         </tr>
     </table>

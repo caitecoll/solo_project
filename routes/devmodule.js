@@ -82,7 +82,7 @@ router.post('/', function(req, res) {
   });
 });
 
-router.put('/review', function(req, res) {
+router.put('/revise', function(req, res) {
   console.log(req.body);
 
   var revisedArticle = {

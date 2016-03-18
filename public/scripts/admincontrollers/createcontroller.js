@@ -1,18 +1,16 @@
 myApp.controller('CreateController', ['$scope', '$location', '$http', 'AdminFactory', function($scope, $location, $http, AdminFactory) {
 
-  //$scope.adminFactory = AdminFactory;
-  //$scope.articles = [];
-
-  //$scope.contentFactory.factoryGetSelectedArticle().then(function() {
-  //  $scope.articles = $scope.contentFactory.factorySelectedPost();
-  //});
-
   $scope.tab = 0;
 
   $scope.article = {};
   $scope.adminFactory = AdminFactory;
   $scope.author = $scope.adminFactory.factoryGetAuthor();
   $scope.showme = false;
+  $scope.role;
+
+  $scope.adminFactory.factoryCheckLogged().then(function() {
+    $scope.role = $scope.adminFactory.factorySendRole();
+  });
 
   $scope.addTechPost = function() {
     $scope.author = $scope.adminFactory.factoryGetAuthor();

@@ -5,6 +5,32 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
   $scope.techArticles = [];
   $scope.devArticles = [];
 
+  $scope.adminFactory.factoryCheckLogged().then(function() {
+    $scope.role = $scope.adminFactory.factorySendRole();
+
+    console.log('logged in');
+    if ($scope.role == 'Admin') {
+      $scope.adminFactory.factoryGetTechArticles().then(function() {
+        $scope.techArticles = $scope.adminFactory.factoryTechPosts();
+        console.log('These are the techArticles', $scope.techArticles);
+      });
+      $scope.adminFactory.factoryGetDevArticles().then(function() {
+        $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+        console.log('These are the devArticles', $scope.devArticles);
+      });
+    } else if ($scope.role == 'Author') {
+      $scope.adminFactory.factoryGetMyTechArticles().then(function() {
+        $scope.techArticles = $scope.adminFactory.factoryMyTechPosts();
+        console.log('These are the techArticles', $scope.techArticles);
+      });
+      $scope.adminFactory.factoryGetMyDevArticles().then(function() {
+        $scope.devArticles = $scope.adminFactory.factoryMyDevPosts();
+        console.log('These are the devArticles', $scope.devArticles);
+      });
+    }
+  });
+
+
   $scope.unPublish = function(id, status) {
     if (id >= 5000) {
       $scope.adminFactory.factoryGetPostId(id);
@@ -14,7 +40,14 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
       $scope.adminFactory.factoryUnpublishTech();
     }
 
-    $scope.adminFactory.factoryCheckRole();
+    $scope.adminFactory.factoryGetTechArticles().then(function() {
+      $scope.techArticles = $scope.adminFactory.factoryTechPosts();
+      console.log('These are the techArticles', $scope.techArticles);
+    });
+    $scope.adminFactory.factoryGetDevArticles().then(function() {
+      $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+      console.log('These are the devArticles', $scope.devArticles);
+    });
   };
 
   $scope.Publish = function(id, status) {
@@ -26,7 +59,14 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
       $scope.adminFactory.factoryPublishTech();
     }
 
-    $scope.adminFactory.factoryCheckRole();
+    $scope.adminFactory.factoryGetTechArticles().then(function() {
+      $scope.techArticles = $scope.adminFactory.factoryTechPosts();
+      console.log('These are the techArticles', $scope.techArticles);
+    });
+    $scope.adminFactory.factoryGetDevArticles().then(function() {
+      $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+      console.log('These are the devArticles', $scope.devArticles);
+    });
   };
 
   $scope.Review = function(id) {
@@ -35,6 +75,7 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
   };
 
   $scope.Edit = function(id) {
+    console.log(id);
     $scope.adminFactory.factoryGetPostId(id);
     $location.path('edit');
   };

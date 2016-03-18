@@ -5,7 +5,7 @@ myApp.controller('LogController', ['$scope', '$location', '$http', '$window', 'A
   $scope.role;
 
   $scope.techArticles = [];
-  $scope.devArticles = [];
+  $scope.devArticles = [{article_title: "hi"}];
 
   $scope.logout = function() {
     $http.get('/logout').then(function(){
@@ -18,24 +18,9 @@ myApp.controller('LogController', ['$scope', '$location', '$http', '$window', 'A
 
     if ($scope.role == 'Admin') {
       $scope.admin = true;
-      $scope.adminFactory.factoryGetTechArticles().then(function() {
-        $scope.techArticles = $scope.adminFactory.factoryTechPosts();
-        console.log('These are the techArticles', $scope.techArticles);
-      });
-      $scope.adminFactory.factoryGetDevArticles().then(function() {
-        $scope.devArticles = $scope.adminFactory.factoryMyDevPosts();
-        console.log('These are the devArticles', $scope.devArticles);
-      });
+
     } else if ($scope.role == 'Author') {
       $scope.admin = false;
-      $scope.adminFactory.factoryGetMyTechArticles().then(function() {
-        $scope.techArticles = $scope.adminFactory.factoryMyTechPosts();
-        console.log('These are the techArticles', $scope.techArticles);
-      });
-      $scope.adminFactory.factoryGetMyDevArticles().then(function() {
-        $scope.devArticles = $scope.adminFactory.factoryMyDevPosts();
-        console.log('These are the devArticles', $scope.devArticles);
-      });
     }
   });
 

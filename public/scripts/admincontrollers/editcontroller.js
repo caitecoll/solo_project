@@ -3,12 +3,16 @@ myApp.controller('EditController', ['$scope', '$location', '$window', '$http', '
   $scope.adminFactory = AdminFactory;
   $scope.drafts = [];
   $scope.comments = [];
+  $scope.showme;
+  $scope.role;
 
   $scope.activeArticle = $scope.adminFactory.factoryViewId();
   $scope.author = $scope.adminFactory.factorySendAuthor();
   $scope.admin = $scope.adminFactory.factorySendAdmin();
 
-  $scope.showme;
+  $scope.adminFactory.factoryCheckLogged().then(function() {
+    $scope.role = $scope.adminFactory.factorySendRole();
+  });
 
   if ($scope.activeArticle >= 5000) {
     $scope.adminFactory.factoryGetSelectedDevDraft().then(function() {

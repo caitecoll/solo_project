@@ -10,15 +10,15 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(id, done) {
 //TODO SQL query
-  console.log('called deserializeUser');
+//  console.log('called deserializeUser');
   pg.connect(connection, function (err, client) {
 
     var user = {};
-    console.log('called deserializeUser - pg');
+    //console.log('called deserializeUser - pg');
     var query = client.query("SELECT * FROM users WHERE id = $1", [id]);
 
     query.on('row', function (row) {
-      console.log('User row', row);
+      //console.log('User row', row);
       user = row;
       done(null, user);
     });
@@ -41,22 +41,22 @@ passport.use('local', new localStrategy({
     usernameField: 'username'
   }, function(req, username, password, done){
     pg.connect(connection, function (err, client) {
-      console.log('called local - pg');
+      //console.log('called local - pg');
       var user = {};
       var query = client.query("SELECT * FROM users WHERE username = $1", [username]);
-      console.log(query);
+      //console.log(query);
 
       query.on('row', function (row) {
-        console.log('User obj', row);
+        //console.log('User obj', row);
         user = row;
-        console.log("Here: ", row);
+        //console.log("Here: ", row);
         // Hash and compare
         if(encryptLib.comparePassword(password, user.password)) {
           // all good!
-          console.log('matched');
+          //console.log('matched');
           done(null, user);
         } else {
-          console.log('nope');
+          //console.log('nope');
           done(null, false, {message: 'Incorrect credentials.'});
         }
 
@@ -64,7 +64,7 @@ passport.use('local', new localStrategy({
 
       // After all data is returned, close connection and return results
       query.on('end', function () {
-        console.log("end");
+        //console.log("end");
         client.end();
       });
 

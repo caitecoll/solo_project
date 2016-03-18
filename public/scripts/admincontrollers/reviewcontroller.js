@@ -2,12 +2,21 @@ myApp.controller('ReviewController', ['$scope', '$location', '$http', 'AdminFact
 
   $scope.adminFactory = AdminFactory;
   $scope.drafts = [];
+  $scope.role;
+  $scope.activeArticle;
+  $scope.author;
+  $scope.admin
   $scope.showme;
 
+  $scope.role;
+
   $scope.activeArticle = $scope.adminFactory.factoryViewId();
-  $scope.role = $scope.adminFactory.factorySendRole();
   $scope.author = $scope.adminFactory.factorySendAuthor();
   $scope.admin = $scope.adminFactory.factorySendAdmin();
+
+  $scope.adminFactory.factoryCheckLogged().then(function() {
+    $scope.role = $scope.adminFactory.factorySendRole();
+  });
 
   if ($scope.activeArticle >= 5000) {
     $scope.adminFactory.factoryGetSelectedDevDraft().then(function() {
