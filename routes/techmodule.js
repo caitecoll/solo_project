@@ -97,4 +97,51 @@ router.post('/', function(req, res) {
   });
 });
 
+router.put('/revise', function(req, res) {
+  console.log(req.body);
+
+  var revisedArticle = {
+    article_title: req.body.title,
+    article_blurb: req.body.blurb,
+    id: req.body.article_id,
+    last_modified: 'now()',
+    nj_what: req.body.nj_what,
+    nj_why: req.body.nj_why,
+    nj_how_new_dev: req.body.nj_how_new_dev,
+    nj_how_exp_dev: req.body.nj_how_exp_dev,
+    nj_how_sr_dev: req.body.nj_how_sr_dev,
+    nj_controversy: req.body.nj_controversy,
+    j_what: req.body.j_what,
+    j_why: req.body.j_why,
+    j_how_new_dev: req.body.j_how_new_dev,
+    j_how_exp_dev: req.body.j_how_exp_dev,
+    j_how_sr_dev: req.body.j_how_sr_dev,
+    j_controversy: req.body.j_controversy,
+    terms: req.body.terms,
+    additional_resources:req.body.additional_resources,
+    status: 'Awaiting Admin Approval'
+  };
+
+  pg.connect(connection, function(err, client, done) {
+    client.query("UPDATE tech_profiles (article_title, article_blurb, last_modified, nj_what, " +
+      "nj_why, nj_how_new_dev, nj_how_exp_dev, nj_how_sr_dev, nj_controversy, j_what, j_why, j_how_new_dev, j_how_exp_dev" +
+      ", j_how_sr_dev, j_controversy, terms, additional_resources, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10" +
+      ", $11, $12, $13, $14, $15, $16, $17, $18) WHERE id = $19",
+      [revisedArticle.article_title, revisedArticle.article_blurb, revisedArticle.last_modified,
+        revisedArticle.nj_what, revisedArticle.nj_why, revisedArticle.nj_how_new_dev, revisedArticle.nj_how_exp_dev, revisedArticle.nj_how_sr_dev,
+        revisedArticle.nj_controversy, revisedArticle.j_what, revisedArticle.j_why, revisedArticle.j_how_new_dev, revisedArticle.j_how_exp_dev,
+        revisedArticle.j_how_sr_dev, revisedArticle.j_controversy, revisedArticle.terms, revisedArticle.additional_resources,
+        revisedArticle.status, revisedArticle.id],
+      function (err, result) {
+        if(err) {
+          console.log("Error inserting data: ", err);
+          res.send(false);
+        } else {
+          res.send(result);
+        }
+      });
+    done();
+  });
+});
+
 module.exports = router;

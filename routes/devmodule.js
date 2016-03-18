@@ -82,4 +82,33 @@ router.post('/', function(req, res) {
   });
 });
 
+router.put('/review', function(req, res) {
+  console.log(req.body);
+
+  var revisedArticle = {
+    article_title: req.body.title,
+    article_blurb: req.body.blurb,
+    content: req.body.content,
+    id: req.body.article_id,
+    last_modified: 'now()',
+    status: 'Awaiting Admin Approval'
+  };
+
+  pg.connect(connection, function(err, client, done) {
+    client.query("UPDATE developer_profiles (article_title, article_blurb, last_modified, " +
+      "content, status) VALUES ($1, $2, $3, $4, $5) WHERE id = $6",
+      [revisedArticle.article_title, revisedArticle.article_blurb, revisedArticle.last_modified,
+        revisedArticle.content, revisedArticle.status, revisedArticle.id],
+      function (err, result) {
+        if(err) {
+          console.log("Error inserting data: ", err);
+          res.send(false);
+        } else {
+          res.send(result);
+        }
+      });
+    done();
+  });
+});
+
 module.exports = router;

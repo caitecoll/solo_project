@@ -1,61 +1,70 @@
-<div class="twelve columns" ng-show="showme">
-    <div ng-repeat="draft in drafts" class="techDraft">
+<div class="container">
+    <div class="twelve columns" ng-show="showme">
+        <div ng-repeat="draft in drafts" class="techDraft">
 
-        <div class="">
             <div class="">
+                <div class="">
+                    <div class="row">
+                        <h2>{{draft.article_title}}</h2>
+                    </div>
+                    <div class="row">
+                        <p class="author">By {{draft.first_name}} {{draft.last_name}}</p>
+                        <p class="date">{{draft.last_modified | date:'EEEE, MMMM d, y'}}</p>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="row">
+                        <div class="">
+                            <p>What It Is: {{draft.nj_what}}</p>
+                            <p>Why It's Cool: {{draft.nj_why}}</p>
+                            <p>How I Use It: </p>
+                            <ul>
+                                <li>Developer, less than 1 year experience: {{draft.nj_how_new_dev}}</li>
+                                <li>Developer, 3-5 years of experience: {{draft.nj_how_exp_dev}}</li>
+                                <li>Developer, over 5 years of experience: {{draft.nj_how_sr_dev}}</li>
+                            </ul>
+                            <p>Heated Topics: {{draft.nj_controversy}}</p>
+                        </div>
+                        <div class="" >
+                            <p>What It Is: {{draft.j_what}}</p>
+                            <p>Why It's Cool: {{draft.j_why}}</p>
+                            <p>How I Use It: </p>
+                            <ul>
+                                <li>Developer, less than 1 year experience: {{draft.j_how_new_dev}}</li>
+                                <li>Developer, 3-5 years of experience: {{draft.j_how_exp_dev}}</li>
+                                <li>Developer, over 5 years of experience: {{draft.j_how_sr_dev}}</li>
+                            </ul>
+                            <p>Heated Topics: {{draft.j_controversy}}</p>
+                        </div>
+                        <p>Additional External Resources: {{draft.additional_resoureces}}</p>
+                        <p>Essential Terminology {{draft.terms}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="twelve columns" ng-hide="showme">
+        <div ng-repeat="draft in drafts" class="devDraft">
+            <div>
                 <div class="row">
                     <h2>{{draft.article_title}}</h2>
                 </div>
                 <div class="row">
-                    <p class="author">By {{draft.first_name}} {{draft.last_name}}</p>
-                    <p class="date">{{draft.last_modified | date:'EEEE, MMMM d, y'}}</p>
+                    <p>By {{draft.first_name}} {{draft.last_name}}</p>
+                    <p>Date {{draft.last_modified}}</p>
                 </div>
-            </div>
-            <div class="">
                 <div class="row">
-                    <div class="">
-                        <p>What It Is: {{draft.nj_what}}</p>
-                        <p>Why It's Cool: {{draft.nj_why}}</p>
-                        <p>How I Use It: </p>
-                        <ul>
-                            <li>Developer, less than 1 year experience: {{draft.nj_how_new_dev}}</li>
-                            <li>Developer, 3-5 years of experience: {{draft.nj_how_exp_dev}}</li>
-                            <li>Developer, over 5 years of experience: {{draft.nj_how_sr_dev}}</li>
-                        </ul>
-                        <p>Heated Topics: {{draft.nj_controversy}}</p>
-                    </div>
-                    <div class="" >
-                        <p>What It Is: {{draft.j_what}}</p>
-                        <p>Why It's Cool: {{draft.j_why}}</p>
-                        <p>How I Use It: </p>
-                        <ul>
-                            <li>Developer, less than 1 year experience: {{draft.j_how_new_dev}}</li>
-                            <li>Developer, 3-5 years of experience: {{draft.j_how_exp_dev}}</li>
-                            <li>Developer, over 5 years of experience: {{draft.j_how_sr_dev}}</li>
-                        </ul>
-                        <p>Heated Topics: {{draft.j_controversy}}</p>
-                    </div>
-                    <p>Additional External Resources: {{draft.additional_resoureces}}</p>
-                    <p>Essential Terminology {{draft.terms}}</p>
+                    <p>{{draft.content}}</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="twelve columns" ng-hide="showme">
-    <div ng-repeat="draft in drafts" class="devDraft">
-        <div>
-            <div class="row">
-                <h2>{{draft.article_title}}</h2>
-            </div>
-            <div class="row">
-                <p>By {{draft.first_name}} {{draft.last_name}}</p>
-                <p>Date {{draft.last_modified}}</p>
-            </div>
-            <div class="row">
-                <p>{{draft.content}}</p>
-            </div>
+    <div>
+        <div class="row">
+            <label for="revComments">Reviewer Comments:  </label></br>
+            <textarea rows="4" cols="100" ng-model="revComments" id="revComments"></textarea>
+            <button class="btn btn-info" ng-click="addComments()">Send Feedback</button>
+            <button class="btn btn-info" ng-click="approve()">Approve</button>
         </div>
     </div>
 </div>
-

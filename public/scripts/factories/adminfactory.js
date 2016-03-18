@@ -8,6 +8,8 @@ myApp.factory('AdminFactory', ['$http', function($http) {
   var userName;
   var role;
   var author_id;
+  var admin_id;
+  var comments;
 
  var checkLogged = function() {
     return $http.get('/user').then(function(response) {
@@ -15,6 +17,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
         userName = response.data.username;
         role = response.data.role;
         author_id = response.data.author_id;
+        admin_id = response.data.id;
         console.log('User Name: ', userName);
         console.log('User Role: ', role);
         console.log('Author_id: ', author_id);
@@ -146,6 +149,32 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     return promise;
   };
 
+  var sendReview = function(data) {
+    $http.post('/review/' + selectedArticleId, data);
+  };
+
+  var sendStatus = function(data) {
+    $http.put('/review/' + selectedArticleId, data);
+  };
+
+  var getComments = function() {
+    var promise = $http.get('/edit/' + selectedArticleId).then(function(response) {
+      comments = response.data;
+      console.log('These are the comments on this article:', comments);
+    });
+    return promise;
+  };
+
+  var reviseTechArticle = function(article) {
+    $http.put('/techprof/revise', article).then(function(response) {
+    });
+  };
+
+  var reviseDevArticle = function(article) {
+    $http.put('/devprof/revise', article).then(function(response) {
+    });
+  };
+
   var publicFunctions = {
     factorySaveTechArticle: function(article) {
       return saveTechArticle(article);
@@ -205,6 +234,12 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     factorySendRole: function() {
       return role;
     },
+    factorySendAdmin: function() {
+      return admin_id;
+    },
+    factorySendAuthor: function() {
+      return author_id;
+    },
     factoryGetAuthor: function() {
       return author_id;
     },
@@ -219,6 +254,24 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     },
     factorySelectedDevDraft: function() {
       return selectedDevDraftData;
+    },
+    factorySendReview: function(data) {
+      return sendReview(data);
+    },
+    factorySendStatus: function(data) {
+      return sendStatus(data);
+    },
+    factoryGetComments: function() {
+      return getComments();
+    },
+    factoryComments: function() {
+      return comments;
+    },
+    factoryReviseTechArticle: function(article) {
+      return reviseTechArticle(article);
+    },
+    factoryReviseDevArticle: function(article) {
+      return reviseDevArticle(article);
     }
   };
 

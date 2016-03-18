@@ -17,6 +17,7 @@ var articleModule = require('./routes/articlemodule');
 var allArticlesModule = require('./routes/allarticlesmodule');
 var logout = require('./routes/logout');
 var review = require('./routes/reviewmodule');
+var edit = require('./routes/editmodule');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -45,6 +46,7 @@ app.use('/article', articleModule);
 app.use('/allarticles', allArticlesModule);
 app.use('/logout',logout);
 app.use('/review',review);
+app.use('/edit',edit);
 
 app.use(express.static('public'));
 app.use(express.static('public/views'));

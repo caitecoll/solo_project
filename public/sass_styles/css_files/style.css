@@ -240,6 +240,9 @@ h3 {
 label {
   display: inline-block; }
 
+.label {
+  font-weight: bold; }
+
 ::-webkit-input-placeholder {
   color: white; }
 
