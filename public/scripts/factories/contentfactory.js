@@ -91,6 +91,12 @@ myApp.factory('ContentFactory', ['$http', function($http) {
       selectedDevArticleId = id;
       return selectedDevArticleId;
     },
+    factoryCurrentDev: function() {
+      return selectedDevArticleId;
+    },
+    factoryCurrentTech: function() {
+      return selectedArticleId;
+    },
     factoryGetSelectedDevArticle: function() {
       return getSelectedDevArticle();
     },

@@ -1,18 +1,24 @@
-<div ng-controller="SearchController" class="topNavlist">
-    <h1>jarpile</h1>
-    <ul class="navHolder">
-        <li class="navlink"><a href="#techprofile">TECH PROFILES</a></li>
-        <li class="navlink"><a href="#devprofile">DEV PROFILES</a></li>
-    </ul>
-    <div class="searchBox">
-        <img src="../../img/search.svg"/>
-        <input ng-model="searchText" ng-change="change(text)" placeholder="Search Articles" />
+<div ng-controller="SearchController" >
+    <div class="topNavlist">
+        <h1>jarpile</h1>
+        <ul class="navHolder">
+            <li class="navlink"><a href="#techprofile">TECH PROFILES</a></li>
+            <li class="navlink"><a href="#devprofile">DEV PROFILES</a></li>
+        </ul>
+        <div class="searchBox">
+            <img src="../../img/search.svg"/>
+            <input ng-model="searchText" ng-change="change(text)" placeholder="Search Articles" />
+            <div class="resultsBox" ng-hide="searchText.length < 1 || searchText.length == undefined">
+                <ul ng-show="articles.length >= 1" class="searchResults">
+                    <li ng-repeat="article in articles"><a class="result" ng-click="selectResult(article.id)">{{article.article_title}}</a></li>
+                </ul>
+                <ul ng-show="searchText.length > 1 && articles.length < 1" class="searchResults">
+                    <li>No Results</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <ul ng-show="articles.length >= 1" class="searchResults">
-        <li ng-repeat="article in articles"><a class="result" ng-click="selectResult(article.id)">{{article.article_title}}</a></li>
-    </ul>
-    <ul ng-show="searchText.length > 1 && articles.length < 1" class="searchResults">
-        <li>No Results</li>
-    </ul>
-    <div class="login"><a href="../login.html"><i class="fa fa-user"></i>Admin Login</a></div>
+    <!--<div>-->
+        <!---->
+    <!--</div>-->
 </div>

@@ -2,10 +2,14 @@ myApp.controller('DevArticleController', ['$scope', '$location', '$http', 'Conte
 
   $scope.contentFactory = ContentFactory;
   $scope.articles = [];
+  $scope.activeArticle = $scope.contentFactory.factoryCurrentDev();
 
-  $scope.contentFactory.factoryGetSelectedDevArticle().then(function() {
-    $scope.articles = $scope.contentFactory.factorySelectedDevPost();
-    //console.log('Selected Article', $scope.articles)
-  });
+  if ($scope.activeArticle >= 5000) {
+    $scope.contentFactory.factoryGetSelectedDevArticle().then(function () {
+      $scope.articles = $scope.contentFactory.factorySelectedDevPost();
+    });
+  } else {
+    $location.path('techprof');
+  }
 
 }]);

@@ -1,7 +1,7 @@
 myApp.controller('TechProfController', ['$scope', '$location', '$http', 'ContentFactory', function($scope, $location, $http, ContentFactory) {
 
   $scope.contentFactory = ContentFactory;
-
+  $scope.tab = 0;
   $scope.techProfiles = [];
   $scope.featTechProfiles = [];
 
@@ -28,6 +28,14 @@ myApp.controller('TechProfController', ['$scope', '$location', '$http', 'Content
   //    $scope.class = "active";
   //};
 
+  $scope.makeFactsActive = function() {
+    $scope.showme = false;
+    $scope.tab = 0;
+  };
 
+  $scope.makeJargonActive = function() {
+    $scope.showme = true;
+    $scope.tab = 1;
+  };
 
 }]);

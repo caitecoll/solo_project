@@ -11,6 +11,9 @@ body {
   a {
     color: black;
   }
+  a:hover {
+    color: #929292;
+  }
 }
 
 .header {
@@ -48,7 +51,7 @@ body {
 
 @media (min-width: 1340px) {
   .topNavlist {
-    width: 1220px;
+    width: 1280px;
   }
 }
 
@@ -61,6 +64,7 @@ body {
   display: inline-block;
   float: right;
   border-bottom: solid white 2px;
+  min-width: 260px;
   img {
     height: 20px;
     margin-top: 4px;
@@ -69,7 +73,7 @@ body {
 
 .container {
   max-width: 1340px;
-  padding: 30px 15px 20px 15px;
+  //padding: 30px 0;
   margin: 0 auto;
   text-align: justify;
 }
@@ -77,6 +81,14 @@ body {
 .login-container {
   margin-top: 100px;
   text-align: center;
+}
+
+.resultsBox {
+  position: absolute;
+  margin-top: 4px;
+  width: 260px;
+  background: white;
+  //padding: 8px;
 }
 
 .topNavlist {
@@ -111,16 +123,17 @@ body {
     color: white;
   }
   .searchResults {
-    float: right;
-    margin-right: 10px;
-    margin-top: 4px;
-    width: 300px;
-    display: inline-block;
+    //float: right;
+    //margin-right: 10px;
+    margin: 8px;
+    padding: 0;
+    //width: 300px;
+    //display: inline-block;
     vertical-align: top;
     list-style-type: none;
-    background: white;
-    opacity: 1;
-    border: solid black 1px;
+    //background: white;
+    //opacity: 1;
+    //border: solid black 1px;
     li {
       margin-bottom: 0;
     }
@@ -134,9 +147,9 @@ body {
 //  text-align: center;
 //}
 
-.mainContent {
-  margin-top: 80px;
-}
+//.mainContent {
+//  margin-top: 80px;
+//}
 
 .postTopper {
   zoom: 1;
@@ -193,10 +206,6 @@ h3 {
   }
 }
 
-.featuredProfiles {
-  //margin-left: -10px;
-  //margin-right: -10px;
-}
 .indivProfile {
   zoom: 1;
   margin: 10px 0;
@@ -284,7 +293,8 @@ h3 {
 
     &:hover {
       text-decoration: none;
-      background: lighten($navBackgroundColor, 5%);
+      color: white;
+      background: #929292;
     }
   }
 }
@@ -302,6 +312,10 @@ h3 {
 .login {
   //display: inline-block;
   padding: 0;
+  position: relative;
+  margin: 80px auto 0 auto;
+  width: 1280px;
+  height: 40px;
   a {
     float: right;
     margin: 0;

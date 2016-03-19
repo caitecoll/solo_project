@@ -1,31 +1,57 @@
 <div class="twelve columns">
-    <div ng-repeat="profile in devProfiles" class="devprofile">
-        <div>
-            <div class="row">
-                <h2><a ng-click="selectDevArticle(profile.id)">{{profile.article_title}}</a></h2>
+    <div class="featured three columns">
+        <div class="sidebar">
+            <div class="sidebarHeader">
+                <h4>Top Picks</h4>
             </div>
-            <div class="row">
-                <h3 class="eight columns">{{profile.article_blurb}}</h3>
-                <img class="mainimg four columns" ng-src="../../img/{{profile.article_photo}}" width="250px"/>
-            </div>
-            <div class="row">
-                <p>By {{profile.first_name}} {{profile.last_name}}</p>
-                <p>Date {{profile.last_modified}}</p>
-            </div>
-            <div class="row">
-                <p>{{profile.content}}</p>
-            </div>
-            <div class="row">
-                <img class="two columns" ng-src="../../img/{{profile.photo}}" width="75px"/>
-                <p class="ten columns" >{{profile.bio}}</p>
+            <div class="featuredProfiles">
+                <div ng-repeat="profile in featDevProfiles" class=" singlefeatured row">
+                    <img src="https://unsplash.it/200" class="one-third column"/>
+                    <div class="two-thirds column blurb">
+                        <a>{{profile.article_blurb}}</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div ng-repeat="profile in featDevProfiles">
-        <div>
-            <h4>Featured Article:</h4>
-            <p>{{profile.article_title}}</p>
-            <p>{{profile.article_blurb}}</p>
+    <div class="one column"></div>
+    <div class="indivProfile eight columns" ng-repeat="profile in devProfiles">
+        <div class="postTopper row">
+            <div class="share">
+                <a onclick="window.open('https://plus.google.com/share?url=http://jarpile.com')"><i class="fa fa-google-plus"></i>Google+</a>
+            </div>
+            <div class="share">
+                <a><i class="fa fa-facebook"></i>Facebook</a>
+            </div>
+            <div class="share">
+                <a onclick="window.open('https://twitter.com/intent/tweet?text=Check out this sweet article on jarpile!')"><i class="fa fa-twitter"></i>Twitter</a>
+            </div>
+            <div class="share">
+                <a onclick="window.open('https://www.linkedin.com/cws/share?url=http://jarpile.com')"><i class="fa fa-linkedin"></i>LinkedIn</a>
+            </div>
+        </div>
+        <div class="devprofile">
+            <div class="profileheading">
+                <div class="row">
+                    <h2><a ng-click="selectDevArticle(profile.id)">{{profile.article_title}}</a></h2>
+                </div>
+                <div class="row">
+                    <img class="mainimg" src="https://unsplash.it/700/200/?random" />
+                </div>
+                <div class="row">
+                    <p class="author">By {{profile.first_name}} {{profile.last_name}}</p>
+                    <p class="date">{{profile.last_modified | date:'EEEE, MMMM d, y'}}</p>
+                </div>
+            </div>
+            <div class="profilebody">
+                <div class="row">
+                    <p>{{profile.content}}</p>
+                </div>
+                <div class="row">
+                    <!--<img ng-src="../../img/{{profile.photo}}" width="75px"/>-->
+                    <p class="twelve columns" > About {{profile.first_name}}: {{profile.bio}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
