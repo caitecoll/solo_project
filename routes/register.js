@@ -10,22 +10,24 @@ var connection = require('../modules/connection');
 var pg = require('pg');
 
 // Handles request for HTML file
-router.get('/', function(req, res, next) {
-    res.sendFile(path.resolve(__dirname, '../public/views/register.html'));
-});
+//router.get('/', function(req, res, next) {
+//    res.sendFile(path.resolve(__dirname, '../public/views/register.html'));
+//});
 
 // Handles POST request with new user data
 router.post('/', function(req, res, next) {
 
   var saveUser = {
     username: req.body.username,
-    password: encryptLib.encryptPassword(req.body.password)
+    password: encryptLib.encryptPassword(req.body.password),
+    author_id: req.body.author_id,
+    role: req.body.role
   };
   console.log('new user:', saveUser);
 
   pg.connect(connection, function(err, client, done) {
-    client.query("INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id",
-      [saveUser.username, saveUser.password],
+    client.query("INSERT INTO users (username, password, author_id, role) VALUES ($1, $2, $3, $4) RETURNING id",
+      [saveUser.username, saveUser.password, saveUser.author_id, saveUser.role],
         function (err, result) {
           client.end();
 
@@ -33,7 +35,7 @@ router.post('/', function(req, res, next) {
             console.log("Error inserting data: ", err);
             next(err);
           } else {
-            res.redirect('/login.html');
+            res.redirect('/admin.html#/allarticles');
           }
         });
   });

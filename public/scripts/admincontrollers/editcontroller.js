@@ -27,7 +27,7 @@ myApp.controller('EditController', ['$scope', '$location', '$window', '$http', '
       enterDevData();
       $scope.showme = false;
     });
-  } else {
+  } else if ($scope.activeArticle > 0 && $scope.activeArticle < 5000) {
     $scope.adminFactory.factoryGetSelectedDraft().then(function() {
       $scope.drafts = $scope.adminFactory.factorySelectedDraft();
 
@@ -40,6 +40,8 @@ myApp.controller('EditController', ['$scope', '$location', '$window', '$http', '
       enterTechData();
       $scope.showme = true;
     });
+  } else {
+    $location.path('allarticles');
   }
 
   function enterDevData() {

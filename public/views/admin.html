@@ -22,10 +22,11 @@
 
     <title>Admin Log-in</title>
 </head>
-<body ng-app="myApp" ng-controller="LogController">
-    <div ng-show="admin" ng-include="'views/admin_templates/adminnav.html'" class="header"></div>
-    <div ng-hide="admin" ng-include="'views/admin_templates/authornav.html'" class="header"></div>
-
+<body ng-app="myApp">
+    <div ng-controller="LogController">
+        <div ng-show="admin" ng-include="'views/admin_templates/adminnav.html'" class="header"></div>
+        <div ng-hide="admin" ng-include="'views/admin_templates/authornav.html'" class="header"></div>
+    </div>
     <div class="container">
         <div class="mainContent">
             <main ng-view></main>

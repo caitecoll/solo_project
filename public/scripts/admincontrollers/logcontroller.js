@@ -5,9 +5,10 @@ myApp.controller('LogController', ['$scope', '$location', '$http', '$window', 'A
   $scope.role;
 
   $scope.techArticles = [];
-  $scope.devArticles = [{article_title: "hi"}];
+  $scope.devArticles = [];
 
   $scope.logout = function() {
+    console.log('Loggingout');
     $http.get('/logout').then(function(){
       $window.location.href = '/#/techprofile';
     });

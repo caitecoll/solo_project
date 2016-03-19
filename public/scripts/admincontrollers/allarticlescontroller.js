@@ -5,10 +5,10 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
   $scope.techArticles = [];
   $scope.devArticles = [];
 
-  $scope.adminFactory.factoryCheckLogged().then(function() {
+  //$scope.adminFactory.factoryCheckLogged().then(function() {
     $scope.role = $scope.adminFactory.factorySendRole();
 
-    console.log('logged in');
+    console.log('logged in', $scope.role);
     if ($scope.role == 'Admin') {
       $scope.adminFactory.factoryGetTechArticles().then(function() {
         $scope.techArticles = $scope.adminFactory.factoryTechPosts();
@@ -28,7 +28,7 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
         console.log('These are the devArticles', $scope.devArticles);
       });
     }
-  });
+  //});
 
 
   $scope.unPublish = function(id, status) {
@@ -54,19 +54,26 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
     if (id >= 5000) {
       $scope.adminFactory.factoryGetPostId(id);
       $scope.adminFactory.factoryPublishDev();
+      $scope.adminFactory.factoryGetTechArticles().then(function() {
+        $scope.techArticles = $scope.adminFactory.factoryTechPosts();
+        console.log('These are the techArticles', $scope.techArticles);
+      });
+      $scope.adminFactory.factoryGetDevArticles().then(function() {
+        $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+        console.log('These are the devArticles', $scope.devArticles);
+      });
     } else {
       $scope.adminFactory.factoryGetPostId(id);
       $scope.adminFactory.factoryPublishTech();
+      $scope.adminFactory.factoryGetTechArticles().then(function() {
+        $scope.techArticles = $scope.adminFactory.factoryTechPosts();
+        console.log('These are the techArticles', $scope.techArticles);
+      });
+      $scope.adminFactory.factoryGetDevArticles().then(function() {
+        $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+        console.log('These are the devArticles', $scope.devArticles);
+      });
     }
-
-    $scope.adminFactory.factoryGetTechArticles().then(function() {
-      $scope.techArticles = $scope.adminFactory.factoryTechPosts();
-      console.log('These are the techArticles', $scope.techArticles);
-    });
-    $scope.adminFactory.factoryGetDevArticles().then(function() {
-      $scope.devArticles = $scope.adminFactory.factoryDevPosts();
-      console.log('These are the devArticles', $scope.devArticles);
-    });
   };
 
   $scope.Review = function(id) {

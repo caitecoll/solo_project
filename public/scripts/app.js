@@ -39,10 +39,13 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: '/views/admin_templates/edit.html',
       controller: 'EditController'
     })
+    .when('/register', {
+      templateUrl: '/views/admin_templates/register.html'
+      //controller: 'ReviewController'
+    })
     .otherwise({
       redirectTo: 'techprofile'
     });
-
 }]);
 
 var loginApp = angular.module('loginApp', []);

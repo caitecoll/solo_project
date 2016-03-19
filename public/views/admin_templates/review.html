@@ -67,4 +67,10 @@
             <button class="btn btn-info" ng-click="approve()">Approve</button>
         </div>
     </div>
+    <div class="row" ng-show="feedback">
+        <div class="twelve columns" ng-repeat="comment in comments">
+            <p class="label"> On {{comment.comment_date  | date:'EEEE, MMMM d, y'}} {{comment.username}} said:</p>
+            <p>{{comment.comments}}</p>
+        </div>
+    </div>
 </div>

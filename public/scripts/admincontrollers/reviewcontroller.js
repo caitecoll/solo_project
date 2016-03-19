@@ -2,13 +2,13 @@ myApp.controller('ReviewController', ['$scope', '$location', '$http', 'AdminFact
 
   $scope.adminFactory = AdminFactory;
   $scope.drafts = [];
+  $scope.comments = [];
   $scope.role;
   $scope.activeArticle;
   $scope.author;
   $scope.admin
   $scope.showme;
 
-  $scope.role;
 
   $scope.activeArticle = $scope.adminFactory.factoryViewId();
   $scope.author = $scope.adminFactory.factorySendAuthor();
@@ -19,15 +19,33 @@ myApp.controller('ReviewController', ['$scope', '$location', '$http', 'AdminFact
   });
 
   if ($scope.activeArticle >= 5000) {
-    $scope.adminFactory.factoryGetSelectedDevDraft().then(function() {
+    $scope.adminFactory.factoryGetSelectedDevDraft().then(function () {
       $scope.drafts = $scope.adminFactory.factorySelectedDevDraft();
+
+      $scope.adminFactory.factoryGetComments().then(function () {
+        $scope.comments = $scope.adminFactory.factoryComments();
+        if ($scope.comments.length >= 1) {
+          $scope.feedback = true;
+        }
+
+      });
       $scope.showme = false;
     });
-  } else {
+  } else if ($scope.activeArticle > 0 && $scope.activeArticle < 5000) {
     $scope.adminFactory.factoryGetSelectedDraft().then(function() {
       $scope.drafts = $scope.adminFactory.factorySelectedDraft();
+
+      $scope.adminFactory.factoryGetComments().then(function() {
+        $scope.comments = $scope.adminFactory.factoryComments();
+        if ($scope.comments.length >= 1) {
+          $scope.feedback = true;
+        }
+      });
+
       $scope.showme = true;
     });
+  } else {
+    $location.path('allarticles');
   }
 
   $scope.addComments = function() {

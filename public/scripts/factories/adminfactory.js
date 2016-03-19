@@ -12,6 +12,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
   var comments;
 
  var checkLogged = function() {
+   console.log('checking if logged in');
     return $http.get('/user').then(function(response) {
       if(response.data) {
         userName = response.data.username;
