@@ -16,6 +16,7 @@ body {
   }
 }
 
+
 .header {
   position: fixed;
   width: 100%;
@@ -42,6 +43,9 @@ body {
     text-decoration: none;
     color: white;
     //padding: 10px 20px 10px 20px;
+  }
+  a:hover {
+    color: white;
   }
 }
 
@@ -76,6 +80,9 @@ body {
   //padding: 30px 0;
   margin: 0 auto;
   text-align: justify;
+  h2 {
+    text-align: left;
+  }
 }
 
 .login-container {
@@ -88,6 +95,8 @@ body {
   margin-top: 4px;
   width: 260px;
   background: white;
+  border: solid #d7d7d7 1px;
+
   //padding: 8px;
 }
 
@@ -125,17 +134,16 @@ body {
   .searchResults {
     //float: right;
     //margin-right: 10px;
-    margin: 8px;
-    padding: 0;
+    margin: 0;
+    padding: 8px;
     //width: 300px;
     //display: inline-block;
     vertical-align: top;
     list-style-type: none;
     //background: white;
     //opacity: 1;
-    //border: solid black 1px;
     li {
-      margin-bottom: 0;
+      margin-bottom: 5px;
     }
   }
 }
@@ -253,8 +261,10 @@ h3 {
 }
 
 .featured {
-  position: fixed;
+  //position: fixed;
   display: inline-block;
+  text-align: left;
+  width: 282px;
 }
 
 .jargonator {
@@ -313,7 +323,7 @@ h3 {
   //display: inline-block;
   padding: 0;
   position: relative;
-  margin: 80px auto 0 auto;
+  margin: 10px auto 0 auto;
   width: 1280px;
   height: 40px;
   a {
@@ -346,6 +356,9 @@ label {
 
 .label {
   font-weight: bold;
+  margin-top: 10px;
+  font-style: italic;
+  margin-bottom: 0;
 }
 
 ::-webkit-input-placeholder {
@@ -364,5 +377,113 @@ label {
   color: white;
 }
 
+.fix-to-top {
+  position: fixed;
+  top: 60px;
+  height: 50px;
+  z-index: 1;
+  width: 100%;
+}
 
+.fix-at-top {
+  position: fixed;
+  top: 117px;
+  display: inline-block;
+  width: 282px;
+}
 
+.imgheader {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.headerImage {
+  border: 0;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+.headerBottom {
+  height: 10px;
+  background-color: black;
+  margin: 0;
+  width: 100%;
+}
+
+.Admin {
+  margin-top: 100px;
+}
+
+.createView {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.entryForm {
+  border-right: solid #d7d7d7 1px;
+  border-left: solid #d7d7d7 1px;
+  border-bottom: solid #d7d7d7 1px;
+  background-color: white;
+  padding: 20px;
+  textarea {
+    width: 960px;
+    height: 90px;
+  }
+  input {
+    width: 960px;
+  }
+  h4 {
+    margin-top: 30px;
+    font-weight: bold;
+  }
+  .content {
+    height: 400px;
+  }
+}
+
+.review {
+  background: white;
+  padding: 80px;
+  border: solid #d7d7d7 1px;
+  width: 1000px;
+  textarea {
+    width: 840px;
+    height: 90px;
+  }
+}
+
+.edit {
+  background: white;
+  padding: 80px;
+  border: solid #d7d7d7 1px;
+  width: 1000px;
+  margin: 0 auto;
+  textarea {
+    width: 960px;
+    height: 300px;
+  }
+  input {
+    width: 960px;
+  }
+  h4 {
+    margin-top: 30px;
+    font-weight: bold;
+  }
+  .content {
+    height: 400px;
+  }
+  .feedback {
+    height: 800px;
+  }
+}
+
+.statusButton {
+  width: 136px;
+}
+
+.register {
+  label {
+    text-align: right;
+  }
+}

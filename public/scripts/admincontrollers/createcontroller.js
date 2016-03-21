@@ -36,23 +36,25 @@ myApp.controller('CreateController', ['$scope', '$location', '$http', 'AdminFact
     };
 
     $scope.adminFactory.factorySaveTechArticle(article);
+    //
+    //$scope.title = '';
+    //$scope.blurb = '';
+    //$scope.nj_what = '';
+    //$scope.nj_why = '';
+    //$scope.nj_how_new_dev = '';
+    //$scope.nj_how_exp_dev = '';
+    //$scope.nj_how_sr_dev = '';
+    //$scope.nj_controversy = '';
+    //$scope.j_what = '';
+    //$scope.j_why = '';
+    //$scope.j_how_new_dev = '';
+    //$scope.j_how_exp_dev = '';
+    //$scope.j_how_sr_dev = '';
+    //$scope.j_controversy = '';
+    //$scope.terms = '';
+    //$scope.additional_resources = '';
 
-    $scope.title = '';
-    $scope.blurb = '';
-    $scope.nj_what = '';
-    $scope.nj_why = '';
-    $scope.nj_how_new_dev = '';
-    $scope.nj_how_exp_dev = '';
-    $scope.nj_how_sr_dev = '';
-    $scope.nj_controversy = '';
-    $scope.j_what = '';
-    $scope.j_why = '';
-    $scope.j_how_new_dev = '';
-    $scope.j_how_exp_dev = '';
-    $scope.j_how_sr_dev = '';
-    $scope.j_controversy = '';
-    $scope.terms = '';
-    $scope.additional_resources = '';
+    $location.path('allarticles');
   };
 
   $scope.addDevPost = function() {
@@ -65,9 +67,10 @@ myApp.controller('CreateController', ['$scope', '$location', '$http', 'AdminFact
 
     $scope.adminFactory.factorySaveDevArticle(article);
 
-    $scope.devtitle = '';
-    $scope.devblurb = '';
-    $scope.content = '';
+    //$scope.devtitle = '';
+    //$scope.devblurb = '';
+    //$scope.content = '';
+    $location.path('allarticles');
   };
 
   $scope.makeFirstActive = function() {

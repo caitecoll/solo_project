@@ -39,3 +39,4 @@ myApp.controller('TechProfController', ['$scope', '$location', '$http', 'Content
   };
 
 }]);
+

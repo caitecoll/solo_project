@@ -64,3 +64,50 @@ loginApp.controller('LoginController', ['$scope', '$http', '$window', function($
     }
   });
 }]);
+
+myApp.directive('setClassWhenTop', ['$window', function($window) {
+  var $win = angular.element($window); // wrap window object as jQuery object
+
+  return {
+    restrict: 'A',
+    link: function (scope, element, attrs)
+    {
+      var topClass = attrs.setClassWhenTop, // get CSS class from directive's attribute value
+        topPadding = parseInt(attrs.paddingWhenAtTop),
+        offsetTop = 226; // get element's offset top relative to document
+      $win.on('scroll', function (e) {
+        if ($window.pageYOffset >= offsetTop) {
+          element.addClass(topClass);
+          element.removeClass("three");
+          element.removeClass("columns");
+        } else {
+          element.removeClass(topClass);
+          element.addClass("three");
+          element.addClass("columns");
+        }
+      });
+    }
+  };
+}]);
+
+myApp.directive('setClassWhenAtTop', ['$window', function($window) {
+  var $win = angular.element($window); // wrap window object as jQuery object
+
+  return {
+    restrict: 'A',
+    link: function (scope, element, attrs)
+    {
+      var topClass = attrs.setClassWhenAtTop, // get CSS class from directive's attribute value
+        topPadding = parseInt(attrs.paddingWhenAtTop),
+        offsetTop = 226; // get element's offset top relative to document
+      $win.on('scroll', function (e) {
+        if ($window.pageYOffset >= offsetTop) {
+          element.addClass(topClass);
+        } else {
+          element.removeClass(topClass);
+        }
+      });
+    }
+  };
+}]);
+

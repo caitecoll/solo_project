@@ -1,12 +1,13 @@
 <div class="twelve columns">
-    <div class="featured three columns">
+    <div class="featured three columns" set-class-when-top="fix-at-top" padding-when-at-top="" >
         <div class="sidebar">
             <div class="sidebarHeader">
                 <h4>Top Picks</h4>
             </div>
             <div class="featuredProfiles">
                 <div ng-repeat="profile in featTechProfiles" class=" singlefeatured row">
-                    <img src="https://unsplash.it/200" class="one-third column"/>
+                    <img ng-src="../../img/{{profile.small_photo}}" class="one-third column" width="200px"/>
+                    <!--<img src="https://unsplash.it/200" class="one-third column"/>-->
                     <div class="two-thirds column blurb">
                         <a>{{profile.article_blurb}}</a>
                     </div>
@@ -36,7 +37,8 @@
                     <h2><a ng-click="selectArticle(profile.id)">{{profile.article_title}}</a></h2>
                 </div>
                 <div class="row">
-                    <img class="mainimg" src="https://unsplash.it/700/200/?random" />
+                    <img class="mainimg" ng-src="../../img/{{profile.article_photo}}" width="700px"/>
+                    <!--<img class="mainimg" src="https://unsplash.it/700/200/?random" />-->
                 </div>
                 <div class="row">
                     <p class="author">By {{profile.first_name}} {{profile.last_name}}</p>
@@ -79,8 +81,8 @@
                     <p>Essential Terminology {{profile.terms}}</p>
                 </div>
                 <div class="row">
-                    <!--<img ng-src="../../img/{{profile.photo}}" width="75px" class="two columns"/>-->
-                    <p class="twelve columns">About {{profile.first_name}}: {{profile.bio}}</p>
+                    <img ng-src="../../img/{{profile.photo}}" width="75px" class="two columns"/>
+                    <p class="ten columns">About {{profile.first_name}}: {{profile.bio}}</p>
                 </div>
             </div>
         </div>

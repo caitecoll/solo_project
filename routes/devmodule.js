@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
 router.get('/featured', function(req, res) {
   var results = [];
   pg.connect(connection, function (err, client, done) {
-    var query = client.query('SELECT article_title, article_blurb FROM developer_profiles WHERE featured = true');
+    var query = client.query('SELECT article_blurb, small_photo FROM developer_profiles WHERE featured = true');
 
     query.on('row', function(row) {
       results.push(row);

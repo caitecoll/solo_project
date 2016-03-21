@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 router.get('/', function(req, res) {
   var results = [];
   pg.connect(connection, function (err, client, done) {
-    var query = client.query('SELECT * FROM tech_profiles JOIN authors ON (tech_profiles.author_id = authors.author_id) ' +
-      'ORDER BY date_created desc');
+    var query = client.query("SELECT * FROM tech_profiles JOIN authors ON (tech_profiles.author_id = authors.author_id) " +
+      "WHERE tech_profiles.status = 'Published' ORDER BY date_created desc");
 
     query.on('row', function(row) {
       results.push(row);
@@ -33,7 +33,7 @@ router.get('/', function(req, res) {
 router.get('/featured', function(req, res) {
   var results = [];
   pg.connect(connection, function (err, client, done) {
-    var query = client.query('SELECT article_title, article_blurb, article_photo FROM tech_profiles WHERE featured = true');
+    var query = client.query('SELECT article_blurb, small_photo FROM tech_profiles WHERE featured = true');
 
     query.on('row', function(row) {
       results.push(row);

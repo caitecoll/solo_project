@@ -1,95 +1,104 @@
-<div class="twelve columns">
-    <div class="row">
-        <nav class="jargonator">
-            <ul class="tabs">
-                <li><a href="" ng-click="makeFirstActive()" ng-class="{active: tab===0}">New Technology Profile</a></li>
-                <li><a href="" ng-click="makeSecondActive()" ng-class="{active: tab==1}">New Developer Profile</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="twelve columns" ng-hide="showme">
-        <form class="twelve columns">
-            <div class="row">
-                <label for="title">Title: </label>
-                <input type="text" ng-model="title" id="title" />
-                <label for="blurb">Article Blurb: </label>
-                <input type="text" ng-model="blurb" id="blurb" />
-            </div>
-            <h4>Just the Facts</h4>
-                <div class="row">
-                    <label for="nj_what">What It Is: </label></br>
-                    <textarea rows="4" cols="100" ng-model="nj_what" id="nj_what"></textarea>
-                </div>
-                <div class="row">
-                    <label for="nj_why">Why it's cool: </label></br>
-                    <textarea rows="4" cols="100" ng-model="nj_why" id="nj_why"></textarea>
-                </div>
-                <div class="row">
-                    <label for="nj_how_new_dev">How I Use It (Developer, less than 1 year experience):  </label></br>
-                    <textarea rows="4" cols="100" ng-model="nj_how_new_dev" id="nj_how_new_dev"></textarea>
-                </div>
-                <div class="row">
-                    <label for="nj_how_exp_dev">How I Use It (Developer, 3-5 years of experience):  </label></br>
-                    <textarea rows="4" cols="100" ng-model="nj_how_exp_dev" id="nj_how_exp_dev"></textarea>
-                </div>
-                <div class="row">
-                    <label for="nj_how_sr_dev">How I Use It (Developer, over 5 years of experience):  </label></br>
-                    <textarea rows="4" cols="100" ng-model="nj_how_sr_dev" id="nj_how_sr_dev"></textarea>
-                </div>
-                <div class="row">
-                    <label for="nj_controversy">Heated Topics:</label></br>
-                    <textarea rows="4" cols="100" ng-model="nj_controversy" id="nj_controversy"></textarea>
-                </div>
-            <h4>Add Jargon</h4>
-                <div class="row">
-                    <label for="j_what">What It Is: </label></br>
-                    <textarea rows="4" cols="100" ng-model="j_what" id="j_what"></textarea>
-                </div>
-                <div class="row">
-                    <label for="j_why">Why it's cool: </label></br>
-                    <textarea rows="4" cols="100" ng-model="j_why" id="j_why"></textarea>
-                </div>
-                <div class="row">
-                    <label for="j_how_new_dev">How I Use It (Developer, less than 1 year experience):  </label></br>
-                    <textarea rows="4" cols="100" ng-model="j_how_new_dev" id="j_how_new_dev"></textarea>
-                </div>
-                <div class="row">
-                    <label for="j_how_exp_dev">How I Use It (Developer, 3-5 years of experience):  </label></br>
-                    <textarea rows="4" cols="100" ng-model="j_how_exp_dev" id="j_how_exp_dev"></textarea>
-                </div>
-                <div class="row">
-                    <label for="j_how_sr_dev">How I Use It (Developer, over 5 years of experience):  </label></br>
-                    <textarea rows="4" cols="100" ng-model="j_how_sr_dev" id="j_how_sr_dev"></textarea>
-                </div>
-                <div class="row">
-                    <label for="j_controversy">Heated Topics:</label></br>
-                    <textarea rows="4" cols="100" ng-model="j_controversy" id="j_controversy"></textarea>
-                </div>
-                <div class="row">
-                    <label for="terms">Key Terms:  </label></br>
-                    <textarea rows="4" cols="100" ng-model="terms" id="terms"></textarea>
-                </div>
-                <div class="row">
-                    <label for="additional_resources">Additional Resources:</label></br>
-                    <textarea rows="4" cols="100" ng-model="additional_resources" id="additional_resources"></textarea>
-                </div>
+<div class="createView">
+    <div class="form-holder">
+        <div class="row">
 
-            <button class="btn btn-info" ng-click="addTechPost()">Submit</button>
-        </form>
-    </div>
-    <div class="twelve columns" ng-show="showme">
-        <form class="twelve columns">
-            <div class="row">
-                <label for="devtitle">Title: </label>
-                <input type="text" ng-model="devtitle" id="devtitle" />
-                <label for="devblurb">Article Blurb: </label>
-                <input type="text" ng-model="devblurb" id="devblurb" />
-            </div>
-            <div class="row">
-                <label for="content">Article Body:</label></br>
-                <textarea cols="100" ng-model="content" id="content"></textarea>
-            </div>
-            <button class="btn btn-info" ng-click="addDevPost()">Submit</button>
-        </form>
+        </div>
+        <div>
+            <nav class="jargonator">
+                <ul class="tabs">
+                    <li><a href="" ng-click="makeFirstActive()" ng-class="{active: tab===0}">New Technology Profile</a></li>
+                    <li><a href="" ng-click="makeSecondActive()" ng-class="{active: tab==1}">New Developer Profile</a></li>
+                </ul>
+            </nav>
+            <form class="entryForm" ng-hide="showme">
+                <!--<div class="twelve columns">-->
+                <div class="row">
+                    <label for="title">Title: </label></br>
+                    <input cols="100" type="text" ng-model="title" id="title" />
+                </div>
+                <div class="row">
+                    <label for="blurb">Article Blurb: </label></br>
+                    <input cols="100" type="text" ng-model="blurb" id="blurb" />
+                </div>
+                <h4>Just the Facts</h4>
+                    <div class="row">
+                        <label for="nj_what">What It Is: </label></br>
+                        <textarea rows="4" cols="100" ng-model="nj_what" id="nj_what"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="nj_why">Why it's cool: </label></br>
+                        <textarea rows="4" cols="100" ng-model="nj_why" id="nj_why"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="nj_how_new_dev">How I Use It (Developer, less than 1 year experience):  </label></br>
+                        <textarea rows="4" cols="100" ng-model="nj_how_new_dev" id="nj_how_new_dev"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="nj_how_exp_dev">How I Use It (Developer, 3-5 years of experience):  </label></br>
+                        <textarea rows="4" cols="100" ng-model="nj_how_exp_dev" id="nj_how_exp_dev"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="nj_how_sr_dev">How I Use It (Developer, over 5 years of experience):  </label></br>
+                        <textarea rows="4" cols="100" ng-model="nj_how_sr_dev" id="nj_how_sr_dev"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="nj_controversy">Heated Topics:</label></br>
+                        <textarea rows="4" cols="100" ng-model="nj_controversy" id="nj_controversy"></textarea>
+                    </div>
+                <h4>Add Jargon</h4>
+                    <div class="row">
+                        <label for="j_what">What It Is: </label></br>
+                        <textarea rows="4" cols="100" ng-model="j_what" id="j_what"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="j_why">Why it's cool: </label></br>
+                        <textarea rows="4" cols="100" ng-model="j_why" id="j_why"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="j_how_new_dev">How I Use It (Developer, less than 1 year experience):  </label></br>
+                        <textarea rows="4" cols="100" ng-model="j_how_new_dev" id="j_how_new_dev"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="j_how_exp_dev">How I Use It (Developer, 3-5 years of experience):  </label></br>
+                        <textarea rows="4" cols="100" ng-model="j_how_exp_dev" id="j_how_exp_dev"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="j_how_sr_dev">How I Use It (Developer, over 5 years of experience):  </label></br>
+                        <textarea rows="4" cols="100" ng-model="j_how_sr_dev" id="j_how_sr_dev"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="j_controversy">Heated Topics:</label></br>
+                        <textarea rows="4" cols="100" ng-model="j_controversy" id="j_controversy"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="terms">Key Terms:  </label></br>
+                        <textarea rows="4" cols="100" ng-model="terms" id="terms"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="additional_resources">Additional Resources:</label></br>
+                        <textarea rows="4" cols="100" ng-model="additional_resources" id="additional_resources"></textarea>
+                    </div>
+
+                <button class="btn btn-info" ng-click="addTechPost()">Submit</button>
+                <!--</div>-->
+            </form>
+        <!--</div>-->
+        <!--<div ng-show="showme">-->
+            <form class="entryForm" ng-show="showme">
+                <div class="row">
+                    <label for="devtitle">Title: </label></br>
+                    <input type="text" ng-model="devtitle" id="devtitle" />
+                </div>
+                <div class="row">
+                    <label for="devblurb">Article Blurb: </label></br>
+                    <input type="text" ng-model="devblurb" id="devblurb" />
+                </div>
+                <div class="row">
+                    <label for="content">Article Body:</label></br>
+                    <textarea class="content" ng-model="content" id="content"></textarea>
+                </div>
+                <button class="btn btn-info" ng-click="addDevPost()">Submit</button>
+            </form>
+        </div>
     </div>
 </div>

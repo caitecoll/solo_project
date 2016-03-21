@@ -1,4 +1,4 @@
-<div class="container">
+<div class="review container">
     <div class="twelve columns" ng-show="showme">
         <div ng-repeat="draft in drafts" class="techDraft">
 
@@ -9,7 +9,7 @@
                     </div>
                     <div class="row">
                         <p class="author">By {{draft.first_name}} {{draft.last_name}}</p>
-                        <p class="date">{{draft.last_modified | date:'EEEE, MMMM d, y'}}</p>
+                        <p class="date">Last Modified: {{draft.last_modified | date:"MM/dd/yyyy 'at' h:mma"}}</p>
                     </div>
                 </div>
                 <div class="">
@@ -69,7 +69,7 @@
     </div>
     <div class="row" ng-show="feedback">
         <div class="twelve columns" ng-repeat="comment in comments">
-            <p class="label"> On {{comment.comment_date  | date:'EEEE, MMMM d, y'}} {{comment.username}} said:</p>
+            <p class="label"> On {{comment.comment_date  | date:"MM/dd/yyyy 'at' h:mma"}} {{comment.username}} said:</p>
             <p>{{comment.comments}}</p>
         </div>
     </div>
