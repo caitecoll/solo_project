@@ -73,7 +73,7 @@ router.post('/', function(req, res) {
     j_controversy: req.body.j_controversy,
     terms: req.body.terms,
     additional_resources:req.body.additional_resources,
-    status: 'Awaiting Admin Approval'
+    status: 'Awaiting Admin Review'
   };
 
   pg.connect(connection, function(err, client, done) {
@@ -119,7 +119,7 @@ router.put('/revise', function(req, res) {
     j_controversy: req.body.j_controversy,
     terms: req.body.terms,
     additional_resources:req.body.additional_resources,
-    status: 'Awaiting Admin Approval'
+    status: 'Awaiting Admin Review'
   };
 
   pg.connect(connection, function(err, client, done) {

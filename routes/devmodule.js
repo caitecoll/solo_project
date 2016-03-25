@@ -62,7 +62,7 @@ router.post('/', function(req, res) {
     content: req.body.content,
     date_created: 'now()',
     last_modified: 'now()',
-    status: 'Awaiting Admin Approval'
+    status: 'Awaiting Admin Review'
   };
 
   pg.connect(connection, function(err, client, done) {
@@ -91,7 +91,7 @@ router.put('/revise', function(req, res) {
     content: req.body.content,
     id: req.body.article_id,
     last_modified: 'now()',
-    status: 'Awaiting Admin Approval'
+    status: 'Awaiting Admin Review'
   };
 
   pg.connect(connection, function(err, client, done) {
