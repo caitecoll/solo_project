@@ -72,11 +72,21 @@ myApp.directive('setClassWhenTop', ['$window', function($window) {
     restrict: 'A',
     link: function (scope, element, attrs)
     {
-      var topClass = attrs.setClassWhenTop, // get CSS class from directive's attribute value
-        topPadding = parseInt(attrs.paddingWhenAtTop),
-        offsetTop = 226; // get element's offset top relative to document
+      var topClass = attrs.setClassWhenTop; // get CSS class from directive's attribute value
+      var topPadding = parseInt(attrs.paddingWhenAtTop);
+
+      console.log('This is the topPadding', topPadding);
+      console.log('This is the element', element);
+
+      var parent = angular.element(element).parent();
+      var scope = angular.element(parent).parent();
+      var main = angular.element(scope).parent();
+      var container = angular.element(main).parent();
+      var offsetTop = (container.prop('offsetTop')); // get element's offset top relative to document
+
       $win.on('scroll', function (e) {
-        if ($window.pageYOffset >= offsetTop) {
+        if ($window.pageYOffset  + topPadding  >= offsetTop) {
+              console.log('window offset: ', $window.pageYOffset)
           element.addClass(topClass);
           element.removeClass("three");
           element.removeClass("columns");
@@ -97,11 +107,13 @@ myApp.directive('setClassWhenAtTop', ['$window', function($window) {
     restrict: 'A',
     link: function (scope, element, attrs)
     {
-      var topClass = attrs.setClassWhenAtTop, // get CSS class from directive's attribute value
-        topPadding = parseInt(attrs.paddingWhenAtTop),
-        offsetTop = 226; // get element's offset top relative to document
+      var topClass = attrs.setClassWhenAtTop; // get CSS class from directive's attribute value
+      var topPadding = parseInt(attrs.paddingWhenAtTop);
+      var offsetTop = (element.prop('offsetTop')); // get element's offset top relative to document
+
       $win.on('scroll', function (e) {
-        if ($window.pageYOffset >= offsetTop) {
+
+        if ($window.pageYOffset  + topPadding >= offsetTop) {
           element.addClass(topClass);
         } else {
           element.removeClass(topClass);

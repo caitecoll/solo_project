@@ -285,7 +285,12 @@ label {
 
 .imgheader {
   width: 100%;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  height: 250px;
+  background-position: bottom;
+  background-size: 100%;
+  background-image: url("../../img/header3.jpg");
+  background-repeat: no-repeat; }
 
 .headerImage {
   border: 0;

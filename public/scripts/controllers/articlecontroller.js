@@ -6,19 +6,19 @@ myApp.controller('ArticleController', ['$scope', '$location', '$http', 'ContentF
   $scope.activeArticle = $scope.contentFactory.factoryCurrentTech();
 
   if ($scope.activeArticle > 0 && $scope.activeArticle < 5000) {
-  $scope.contentFactory.factoryGetSelectedArticle().then(function() {
-    $scope.articles = $scope.contentFactory.factorySelectedPost();
-  });
+    $scope.contentFactory.factoryGetSelectedArticle().then(function () {
+      $scope.articles = $scope.contentFactory.factorySelectedPost();
+    });
   } else {
     $location.path('techprof');
   }
 
-  $scope.makeArticleFactsActive = function() {
+  $scope.makeArticleFactsActive = function () {
     $scope.showme = false;
     $scope.tab = 0;
   };
 
-  $scope.makeArticleJargonActive = function() {
+  $scope.makeArticleJargonActive = function () {
     $scope.showme = true;
     $scope.tab = 1;
   };
