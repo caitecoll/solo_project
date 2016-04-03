@@ -103,6 +103,10 @@ myApp.directive('setClassWhenAtTop', ['$window', function($window) {
       var topPadding = parseInt(attrs.paddingWhenAtTop);
       var offsetTop = (element.prop('offsetTop')); // get element's offset top relative to document
 
+      if (offsetTop < 250){
+        offsetTop = 250;
+      }
+
       $win.on('scroll', function (e) {
 
         if ($window.pageYOffset  + topPadding >= offsetTop) {
