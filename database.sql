@@ -1,5 +1,13 @@
+CREATE TABLE admins
+(
+  id serial PRIMARY KEY,
+  first_name varchar(60),
+  last_name varchar(60),
+  username varchar(60),
+  email_address varchar(100),
+  password varchar(128)
+);
 
--- Create command for author table
 CREATE TABLE authors
 (
   author_id serial PRIMARY KEY,
@@ -11,44 +19,41 @@ CREATE TABLE authors
   photo varchar(255)
 );
 
--- Create command for admin table
-CREATE TABLE admins
-(
-  id serial PRIMARY KEY,
-  first_name varchar(60),
-  last_name varchar(60),
-  username varchar(60),
-  email_address varchar(100),
-  password varchar(128)
-);
-
--- Create command for developer_profiles table
 CREATE TABLE developer_profiles
 (
   id serial PRIMARY KEY,
   article_title varchar(255),
   article_blurb varchar(255),
-  author_id int REFERENCES authors (id),
-  created_by int REFERENCES admins (id),
-  date_created timestamp,
-  last_modified timestamp,
+  author_id int REFERENCES authors (author_id),
+  published_by int REFERENCES admins (id),
+  date_created timestamp with time zone,
+  last_modified timestamp with time zone,
+  date_approved timestamp with time zone,
+  approved_by int REFERENCES admins (id),
+  date_published timestamp with time zone,
   article_photo varchar(255),
   featured boolean,
+  status character varying(60),
+  comments text,
+  small_photo character varying(120),
   content text
 );
 
--- Create command for tech_profiles table
 CREATE TABLE tech_profiles
 (
   id serial PRIMARY KEY,
   article_title varchar(255),
   article_blurb varchar(255),
-  author_id int REFERENCES authors (id),
-  created_by int REFERENCES admins (id),
-  date_created timestamp,
-  last_modified timestamp,
+  author_id int REFERENCES authors (author_id),
+  published_by int REFERENCES admins (id),
+  date_created timestamp with time zone,
+  last_modified timestamp with time zone,
+  date_approved timestamp with time zone,
+  approved_by int REFERENCES admins (id),
+  date_published timestamp with time zone,
   article_photo varchar(255),
   featured boolean,
+  status varchar(50) NOT NULL,
   nj_what text,
   nj_why text,
   nj_how_new_dev text,
@@ -62,7 +67,8 @@ CREATE TABLE tech_profiles
   j_how_sr_dev text,
   j_controversy text,
   terms text,
-  additional_resources text
+  additional_resources text,
+  small_photo character varying(120)
 );
 
 CREATE TABLE users (
