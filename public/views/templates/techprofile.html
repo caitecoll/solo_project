@@ -1,5 +1,5 @@
 <div class="twelve columns">
-    <div class="featured three columns" set-class-when-top="fix-at-top" padding-when-at-top="120" >
+    <div class="featured" set-class-when-top="fix-at-top" padding-when-at-top="120" >
         <div class="sidebar">
             <div class="sidebarHeader">
                 <h4>Top Picks</h4>
@@ -15,7 +15,6 @@
             </div>
         </div>
     </div>
-    <div class="one column"></div>
     <div class="indivProfile eight columns" ng-repeat="profile in techProfiles">
         <div class="postTopper row">
             <div class="share">
@@ -37,7 +36,7 @@
                     <h2><a ng-click="selectArticle(profile.id)">{{profile.article_title}}</a></h2>
                 </div>
                 <div class="row">
-                    <img class="mainimg" ng-src="../../img/{{profile.article_photo}}" width="700px"/>
+                    <img class="mainimg" ng-src="../../img/{{profile.article_photo}}" />
                     <!--<img class="mainimg" src="https://unsplash.it/700/200/?random" />-->
                 </div>
                 <div class="row">

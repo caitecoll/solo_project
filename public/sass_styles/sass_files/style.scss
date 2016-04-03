@@ -14,6 +14,7 @@ body {
   a:hover {
     color: #929292;
   }
+  //font: normal 100% 'Muli', sans-serif;
 }
 
 
@@ -26,7 +27,6 @@ body {
   top: 0;
   left: 0;
   background-color: #66c0b7;
-  font-family: 'Muli', sans-serif;
 }
 
 
@@ -148,12 +148,12 @@ body {
   }
 }
 
-//.mainimg {
-//  display: inline-block;
-//  float: right;
-//  /*vertical-align: bottom;*/
-//  text-align: center;
-//}
+.mainimg {
+  //display: inline-block;
+  //float: right;
+  width: 100%;
+  //text-align: center;
+}
 
 //.mainContent {
 //  margin-top: 80px;
@@ -241,30 +241,29 @@ h3 {
   display: inline-block;
   //float: right;
   padding: 0;
-  //max-width: 685px;
-  //max-width: 685px;
-  margin: 40px;
+  margin: 6%;
 }
 
 .profileheading {
   zoom: 1;
   height: auto;
   overflow: hidden;
-  margin: 20px 20px 0 20px;
+  //margin: 20px 20px 0 20px;
+  padding: 0;
 }
 
 .profilebody {
   zoom: 1;
   height: auto;
   overflow: hidden;
-  margin: 20px 20px 0 20px;
+  //margin: 20px 20px 0 20px;
 }
 
 .featured {
   //position: fixed;
   display: inline-block;
   text-align: left;
-  width: 282px;
+  width: 22%;
 }
 
 .jargonator {
@@ -388,8 +387,8 @@ label {
 .fix-at-top {
   position: fixed;
   top: 117px;
-  display: inline-block;
-  width: 282px;
+  //display: inline-block;
+  //width: 22%;
 }
 
 .imgheader {
@@ -490,5 +489,11 @@ label {
 .register {
   label {
     text-align: right;
+  }
+}
+
+@media (min-width: 550px) {
+  .featured {
+    width: 282px;
   }
 }

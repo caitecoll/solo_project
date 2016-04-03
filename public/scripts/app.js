@@ -88,12 +88,12 @@ myApp.directive('setClassWhenTop', ['$window', function($window) {
         if ($window.pageYOffset  + topPadding  >= offsetTop) {
               //console.log('window offset: ', $window.pageYOffset)
           element.addClass(topClass);
-          element.removeClass("three");
-          element.removeClass("columns");
+          //element.removeClass("three");
+          //element.removeClass("columns");
         } else {
           element.removeClass(topClass);
-          element.addClass("three");
-          element.addClass("columns");
+          //element.addClass("three");
+          //element.addClass("columns");
         }
       });
     }

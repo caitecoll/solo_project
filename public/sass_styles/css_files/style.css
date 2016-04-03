@@ -13,8 +13,7 @@ body {
   height: 60px;
   top: 0;
   left: 0;
-  background-color: #66c0b7;
-  font-family: 'Muli', sans-serif; }
+  background-color: #66c0b7; }
 
 .navlink {
   font-size: 18px;
@@ -102,6 +101,9 @@ body {
     .topNavlist .searchResults li {
       margin-bottom: 5px; }
 
+.mainimg {
+  width: 100%; }
+
 .postTopper {
   zoom: 1;
   top: 59px;
@@ -164,24 +166,23 @@ h3 {
 .techprofile, .devprofile {
   display: inline-block;
   padding: 0;
-  margin: 40px; }
+  margin: 6%; }
 
 .profileheading {
   zoom: 1;
   height: auto;
   overflow: hidden;
-  margin: 20px 20px 0 20px; }
+  padding: 0; }
 
 .profilebody {
   zoom: 1;
   height: auto;
-  overflow: hidden;
-  margin: 20px 20px 0 20px; }
+  overflow: hidden; }
 
 .featured {
   display: inline-block;
   text-align: left;
-  width: 282px; }
+  width: 22%; }
 
 .jargonator {
   height: 34px;
@@ -279,9 +280,7 @@ label {
 
 .fix-at-top {
   position: fixed;
-  top: 117px;
-  display: inline-block;
-  width: 282px; }
+  top: 117px; }
 
 .imgheader {
   width: 100%;
@@ -361,5 +360,9 @@ label {
 
 .register label {
   text-align: right; }
+
+@media (min-width: 550px) {
+  .featured {
+    width: 282px; } }
 
 /*# sourceMappingURL=style.css.map */
