@@ -1,9 +1,10 @@
 myApp.controller('TechProfController', ['$scope', '$location', '$http', 'ContentFactory', function($scope, $location, $http, ContentFactory) {
 
   $scope.contentFactory = ContentFactory;
-  $scope.tab = 0;
+  $scope.tab = [];
   $scope.techProfiles = [];
   $scope.featTechProfiles = [];
+  $scope.showme = [];
 
   $scope.contentFactory.factoryRetrieveTechProfs().then(function() {
     $scope.techProfiles = $scope.contentFactory.factoryTechList();
@@ -20,22 +21,16 @@ myApp.controller('TechProfController', ['$scope', '$location', '$http', 'Content
     $location.path('article');
   };
 
-  //$scope.class = "active";
-  //$scope.changeClass = function(){
-  //  if ($scope.class === "active")
-  //    $scope.class = "";
-  //  else
-  //    $scope.class = "active";
-  //};
-
-  $scope.makeFactsActive = function() {
-    $scope.showme = false;
-    $scope.tab = 0;
+  $scope.makeFactsActive = function($index) {
+    $scope.showme[$index] = false;
+    $scope.tab[$index] = 0;
+    console.log('Facts', $scope.showme[$index]);
   };
 
-  $scope.makeJargonActive = function() {
-    $scope.showme = true;
-    $scope.tab = 1;
+  $scope.makeJargonActive = function($index) {
+    $scope.showme[$index] = true;
+    $scope.tab[$index] = 1;
+    console.log('Jargon', $scope.tab[$index]);
   };
 
 }]);

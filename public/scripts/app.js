@@ -86,7 +86,7 @@ myApp.directive('setClassWhenTop', ['$window', function($window) {
 
       $win.on('scroll', function (e) {
         if ($window.pageYOffset  + topPadding  >= offsetTop) {
-              console.log('window offset: ', $window.pageYOffset)
+              //console.log('window offset: ', $window.pageYOffset)
           element.addClass(topClass);
           element.removeClass("three");
           element.removeClass("columns");

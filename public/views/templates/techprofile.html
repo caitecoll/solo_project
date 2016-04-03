@@ -49,13 +49,13 @@
                 <div class="row">
                     <nav class="jargonator">
                         <ul class="tabs">
-                            <li><a href="" ng-click="makeFactsActive()" ng-class="{active: tab===0}">Just the Facts</a></li>
-                            <li><a href="" ng-click="makeJargonActive()" ng-class="{active: tab==1}">Add Jargon</a></li>
+                            <li><a href="" ng-click="makeFactsActive($index)" ng-class="{active: showme[$index]!=true}">Just the Facts</a></li>
+                            <li><a href="" ng-click="makeJargonActive($index)" ng-class="{active: showme[$index]==true}">Add Jargon</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="row">
-                    <div class="nj" ng-hide="showme">
+                    <div class="nj" ng-hide="showme[$index]">
                         <p>What It Is: {{profile.nj_what}}</p>
                         <p>Why It's Cool: {{profile.nj_why}}</p>
                         <p>How I Use It: </p>
@@ -66,7 +66,7 @@
                         </ul>
                         <p>Heated Topics: {{profile.nj_controversy}}</p>
                     </div>
-                    <div class="j" ng-show="showme">
+                    <div class="j" ng-show="showme[$index]">
                         <p>What It Is: {{profile.j_what}}</p>
                         <p>Why It's Cool: {{profile.j_why}}</p>
                         <p>How I Use It: </p>
