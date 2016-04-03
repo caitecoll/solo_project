@@ -5,32 +5,30 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
   $scope.techArticles = [];
   $scope.devArticles = [];
 
-  //$scope.adminFactory.factoryCheckLogged().then(function() {
+  //check that user is logged in. If they are, check the user's role. If they are an admin, show them every article.
+  //If they're an author, show them only their own articles.
+  $scope.adminFactory.factoryCheckLogged().then(function() {
     $scope.role = $scope.adminFactory.factorySendRole();
 
     console.log('logged in', $scope.role);
     if ($scope.role == 'Admin') {
       $scope.adminFactory.factoryGetTechArticles().then(function() {
         $scope.techArticles = $scope.adminFactory.factoryTechPosts();
-        console.log('These are the techArticles', $scope.techArticles);
       });
       $scope.adminFactory.factoryGetDevArticles().then(function() {
         $scope.devArticles = $scope.adminFactory.factoryDevPosts();
-        console.log('These are the devArticles', $scope.devArticles);
       });
     } else if ($scope.role == 'Author') {
       $scope.adminFactory.factoryGetMyTechArticles().then(function() {
         $scope.techArticles = $scope.adminFactory.factoryMyTechPosts();
-        console.log('These are the techArticles', $scope.techArticles);
       });
       $scope.adminFactory.factoryGetMyDevArticles().then(function() {
         $scope.devArticles = $scope.adminFactory.factoryMyDevPosts();
-        console.log('These are the devArticles', $scope.devArticles);
       });
     }
-  //});
+  });
 
-
+  //Unpublish an article so it no longer displays for website visitors.
   $scope.unPublish = function(id, status) {
     if (id >= 5000) {
       $scope.adminFactory.factoryGetPostId(id);
@@ -42,45 +40,42 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
 
     $scope.adminFactory.factoryGetTechArticles().then(function() {
       $scope.techArticles = $scope.adminFactory.factoryTechPosts();
-      console.log('These are the techArticles', $scope.techArticles);
     });
     $scope.adminFactory.factoryGetDevArticles().then(function() {
       $scope.devArticles = $scope.adminFactory.factoryDevPosts();
-      console.log('These are the devArticles', $scope.devArticles);
     });
   };
 
-  $scope.Publish = function(id, status) {
+    //Publish an article so it displays for website visitors.
+    $scope.Publish = function(id, status) {
     if (id >= 5000) {
       $scope.adminFactory.factoryGetPostId(id);
       $scope.adminFactory.factoryPublishDev();
       $scope.adminFactory.factoryGetTechArticles().then(function() {
         $scope.techArticles = $scope.adminFactory.factoryTechPosts();
-        console.log('These are the techArticles', $scope.techArticles);
       });
       $scope.adminFactory.factoryGetDevArticles().then(function() {
         $scope.devArticles = $scope.adminFactory.factoryDevPosts();
-        console.log('These are the devArticles', $scope.devArticles);
       });
     } else {
       $scope.adminFactory.factoryGetPostId(id);
       $scope.adminFactory.factoryPublishTech();
       $scope.adminFactory.factoryGetTechArticles().then(function() {
         $scope.techArticles = $scope.adminFactory.factoryTechPosts();
-        console.log('These are the techArticles', $scope.techArticles);
       });
       $scope.adminFactory.factoryGetDevArticles().then(function() {
         $scope.devArticles = $scope.adminFactory.factoryDevPosts();
-        console.log('These are the devArticles', $scope.devArticles);
       });
     }
   };
 
+  //Gets relevant article and opens it in the review view.
   $scope.Review = function(id) {
     $scope.adminFactory.factoryGetPostId(id);
     $location.path('review');
   };
 
+  //Gets relevant article and opens it in the edit view.
   $scope.Edit = function(id) {
     console.log(id);
     $scope.adminFactory.factoryGetPostId(id);

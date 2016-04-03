@@ -6,14 +6,18 @@ myApp.controller('EditController', ['$scope', '$location', '$window', '$http', '
   $scope.showme;
   $scope.role;
 
+  //These assignments pull the relevant article, author and admin info
   $scope.activeArticle = $scope.adminFactory.factoryViewId();
   $scope.author = $scope.adminFactory.factorySendAuthor();
   $scope.admin = $scope.adminFactory.factorySendAdmin();
 
+  //Check if user is logged in and verify role.
   $scope.adminFactory.factoryCheckLogged().then(function() {
     $scope.role = $scope.adminFactory.factorySendRole();
   });
 
+  //This expression checks to see if the article is a tech profile (id < 5000) or a dev profile (id >= 5000) and then
+  //returns the correct article
   if ($scope.activeArticle >= 5000) {
     $scope.adminFactory.factoryGetSelectedDevDraft().then(function() {
       $scope.drafts = $scope.adminFactory.factorySelectedDevDraft();
@@ -44,12 +48,14 @@ myApp.controller('EditController', ['$scope', '$location', '$window', '$http', '
     $location.path('allarticles');
   }
 
+  //Populates data on page for dev article
   function enterDevData() {
     $scope.devtitle = $scope.drafts[0].article_title;
     $scope.devblurb = $scope.drafts[0].article_blurb;
     $scope.content = $scope.drafts[0].content;
   }
 
+  //Populates data on page for tech article
   function enterTechData() {
 
     $scope.title = $scope.drafts[0].article_title;
@@ -70,6 +76,7 @@ myApp.controller('EditController', ['$scope', '$location', '$window', '$http', '
     $scope.additional_resources = $scope.drafts[0].additional_resources;
   }
 
+  //Adds Author's comments/feedback
   $scope.addAuthComments = function() {
     console.log('Reviewer Comments', $scope.revComments);
 
@@ -86,6 +93,7 @@ myApp.controller('EditController', ['$scope', '$location', '$window', '$http', '
     $location.path('allarticles');
   };
 
+  //Adds updated dev article to database
   $scope.addDevRevision = function() {
     var article = {
       title: $scope.devtitle,
@@ -108,6 +116,7 @@ myApp.controller('EditController', ['$scope', '$location', '$window', '$http', '
     $location.path('allarticles');
   };
 
+  //Adds updated tech article to database
   $scope.addTechRevision = function() {
     var article = {
       title: $scope.title,

@@ -1,6 +1,3 @@
-/**
- * Created by cecollins on 3/15/16.
- */
 var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 

@@ -9,15 +9,18 @@ myApp.controller('ReviewController', ['$scope', '$location', '$http', 'AdminFact
   $scope.admin
   $scope.showme;
 
-
+  //These assignments pull the relevant article, author and admin info
   $scope.activeArticle = $scope.adminFactory.factoryViewId();
   $scope.author = $scope.adminFactory.factorySendAuthor();
   $scope.admin = $scope.adminFactory.factorySendAdmin();
 
+  //Check if user is logged in and verify role.
   $scope.adminFactory.factoryCheckLogged().then(function() {
     $scope.role = $scope.adminFactory.factorySendRole();
   });
 
+  //This expression checks to see if the article is a tech profile (id < 5000) or a dev profile (id >= 5000) and then
+  //returns the correct article
   if ($scope.activeArticle >= 5000) {
     $scope.adminFactory.factoryGetSelectedDevDraft().then(function () {
       $scope.drafts = $scope.adminFactory.factorySelectedDevDraft();
@@ -48,6 +51,7 @@ myApp.controller('ReviewController', ['$scope', '$location', '$http', 'AdminFact
     $location.path('allarticles');
   }
 
+  //Adds Admin's comments/feedback
   $scope.addComments = function() {
     console.log('Reviewer Comments', $scope.revComments);
 
@@ -64,6 +68,7 @@ myApp.controller('ReviewController', ['$scope', '$location', '$http', 'AdminFact
     $location.path('allarticles');
   };
 
+  //Sets the article as "approved" in the database, allowing it to be published at a later date
   $scope.approve = function() {
     console.log('This is approved with the following feedback', $scope.revComments);
 

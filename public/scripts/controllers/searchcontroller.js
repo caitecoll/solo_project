@@ -4,6 +4,8 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'ContentFa
   $scope.searchText = undefined;
   $scope.articles = [];
 
+  //Once at least one character is typed into the search input, sends query to DB, checking for article bodies/titles
+  //that contain those characters. Sends a new query for each character typed and displays results.
   $scope.change = function() {
     var query = $scope.searchText;
     if (query.length >= 1) {
@@ -16,6 +18,8 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'ContentFa
     }
   };
 
+  //When user clicks on a search result, checks to see if the article is a tech profile (id < 5000) or a dev profile
+  // (id >= 5000), saves the article id and redirects to the corresponding view
   $scope.selectResult = function(id){
     $scope.searchText = '';
     $scope.articles = [];
