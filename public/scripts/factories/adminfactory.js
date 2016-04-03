@@ -28,28 +28,6 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     });
   };
 
-  //var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
-  //  var deferred = $q.defer();
-  //  // Make an AJAX call to check if the user is logged in
-  //
-  //  $http.get('/user').success(function(user){
-  //
-  //    // Authenticated
-  //    if (user !== '0') {
-  //      deferred.resolve();
-  //    }
-  //    else {
-  //      $rootScope.message = 'You need to log in.';
-  //      deferred.reject();
-  //      $window.location.href = '/login.html';
-  //    }
-  //  });
-  //
-  //  return deferred.promise;
-  //};
-
-  //checkLogged();
-
   var saveTechArticle = function(article) {
     $http.post('/techprof', article).then(function(response) {
     });
@@ -75,7 +53,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
   };
 
   var getMyTech = function() {
-    console.log('Get My Tech', author_id);
+    //console.log('Get My Tech', author_id);
     var promise = $http.get('/allarticles/mytech/' + author_id).then(function(response) {
       allTechPosts = response.data;
     });
@@ -83,7 +61,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
   };
 
   var getMyDev = function() {
-    console.log('Get My Dev', author_id);
+    //console.log('Get My Dev', author_id);
     var promise = $http.get('/allarticles/mydev/' + author_id).then(function(response) {
       allDevPosts = response.data;
     });
@@ -94,11 +72,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     var data = {
       postStatus: 'Approved'
     };
-
-    console.log(data);
-
-    $http.put('/allarticles/devchange/' + selectedArticleId, data).then(function(response) {
-    });
+    $http.put('/allarticles/devchange/' + selectedArticleId, data);
   };
 
   var unpublishTech = function() {
@@ -106,8 +80,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
       postStatus: 'Approved'
     };
 
-    $http.put('/allarticles/techchange/' + selectedArticleId, data).then(function(response) {
-    });
+    $http.put('/allarticles/techchange/' + selectedArticleId, data);
   };
 
   var PublishDev = function() {
@@ -115,10 +88,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
       postStatus: 'Published'
     };
 
-    console.log(data);
-
-    $http.put('/allarticles/devchange/' + selectedArticleId, data).then(function(response) {
-    });
+    $http.put('/allarticles/devchange/' + selectedArticleId, data);
   };
 
   var PublishTech = function() {
@@ -126,26 +96,19 @@ myApp.factory('AdminFactory', ['$http', function($http) {
       postStatus: 'Published'
     };
 
-    $http.put('/allarticles/techchange/' + selectedArticleId, data).then(function(response) {
-    });
+    $http.put('/allarticles/techchange/' + selectedArticleId, data);
   };
 
   var getSelectedDraft = function() {
-    console.log('This is the selected ID');
     var promise = $http.get('/review/tech/' + selectedArticleId).then(function(response) {
-      console.log('This is the response', response.data);
       selectedDraftData = response.data;
-      console.log('This is the draft', selectedDraftData);
     });
     return promise;
   };
 
   var getSelectedDevDraft = function() {
-    console.log('This is the selected ID', selectedArticleId);
     var promise = $http.get('/review/dev/' + selectedArticleId).then(function(response) {
-      console.log('This is the response', response.data);
       selectedDevDraftData = response.data;
-      console.log('This is the draft', selectedDevDraftData);
     });
     return promise;
   };
@@ -161,19 +124,16 @@ myApp.factory('AdminFactory', ['$http', function($http) {
   var getComments = function() {
     var promise = $http.get('/edit/' + selectedArticleId).then(function(response) {
       comments = response.data;
-      console.log('These are the comments on this article:', comments);
     });
     return promise;
   };
 
   var reviseTechArticle = function(article) {
-    $http.put('/techprof/revise', article).then(function(response) {
-    });
+    $http.put('/techprof/revise', article);
   };
 
   var reviseDevArticle = function(article) {
-    $http.put('/devprof/revise', article).then(function(response) {
-    });
+    $http.put('/devprof/revise', article);
   };
 
   var publicFunctions = {
@@ -209,7 +169,6 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     },
     factoryGetPostId: function(id){
       selectedArticleId = id;
-      console.log('This is the selectedArticleID', selectedArticleId);
       return selectedArticleId;
     },
     factoryViewId:function(){
@@ -229,12 +188,6 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     },
     factoryCheckLogged: function() {
       return checkLogged();
-    },
-    factoryCheckRole: function() {
-      return checkRole();
-    },
-    factoryCheckLoggedIn: function() {
-      return checkLoggedin;
     },
     factorySendRole: function() {
       return role;

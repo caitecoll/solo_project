@@ -7,10 +7,8 @@ myApp.controller('SearchController', ['$scope', '$http', '$location', 'ContentFa
   $scope.change = function() {
     var query = $scope.searchText;
     if (query.length >= 1) {
-      //console.log('This is the query', query);
       $http.get('/search/' + query).then(function(result){
         $scope.articles = result.data;
-        //console.log('These are the results', $scope.articles);
       });
     }
     else {

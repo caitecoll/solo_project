@@ -9,6 +9,11 @@ myApp.controller('ArticleController', ['$scope', '$location', '$http', 'ContentF
     $scope.contentFactory.factoryGetSelectedArticle().then(function () {
       $scope.articles = $scope.contentFactory.factorySelectedPost();
     });
+
+    $scope.contentFactory.factoryFeaturedTech().then(function() {
+      $scope.featTechProfiles = $scope.contentFactory.factoryFeatTechList();
+    });
+
   } else {
     $location.path('techprof');
   }

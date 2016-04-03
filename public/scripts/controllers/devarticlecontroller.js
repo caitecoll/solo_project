@@ -8,6 +8,9 @@ myApp.controller('DevArticleController', ['$scope', '$location', '$http', 'Conte
     $scope.contentFactory.factoryGetSelectedDevArticle().then(function () {
       $scope.articles = $scope.contentFactory.factorySelectedDevPost();
     });
+    $scope.contentFactory.factoryFeaturedDev().then(function() {
+      $scope.featDevProfiles = $scope.contentFactory.factoryFeatDevList();
+    });
   } else {
     $location.path('techprof');
   }
