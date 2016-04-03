@@ -6,7 +6,8 @@
             </div>
             <div class="featuredProfiles">
                 <div ng-repeat="profile in featTechProfiles" class=" singlefeatured row">
-                    <img src="https://unsplash.it/200" class="one-third column"/>
+                    <img ng-src="../../img/{{profile.small_photo}}" class="one-third column" width="200px"/>
+                    <!--<img src="https://unsplash.it/200" class="one-third column"/>-->
                     <div class="two-thirds column blurb">
                         <a>{{profile.article_blurb}}</a>
                     </div>
@@ -36,7 +37,8 @@
                     <h2>{{article.article_title}}</h2>
                 </div>
                 <div class="row">
-                    <img class="mainimg" src="https://unsplash.it/700/200/?random" />
+                    <img ng-if="article.article_photo != null" class="mainimg" ng-src="../../img/{{article.article_photo}}"/>
+                    <img ng-if="article.article_photo == null" class="mainimg" src="https://unsplash.it/740/210/?random" />
                 </div>
                 <div class="row">
                     <p class="author">By {{article.first_name}} {{article.last_name}}</p>
@@ -79,8 +81,8 @@
                     <p>Essential Terminology {{article.terms}}</p>
                 </div>
                 <div class="row">
-                    <!--<img class="two columns" ng-src="../../img/{{article.photo}}" width="75px"/>-->
-                    <p class="twelve columns">About {{article.first_name}}: {{article.bio}}</p>
+                    <img src="https://unsplash.it/75" class="two columns"/>
+                    <p class="ten columns" > About {{article.first_name}}: {{article.bio}}</p>
                 </div>
             </div>
         </div>

@@ -36,8 +36,8 @@
                     <h2><a ng-click="selectArticle(profile.id)">{{profile.article_title}}</a></h2>
                 </div>
                 <div class="row">
-                    <img class="mainimg" ng-src="../../img/{{profile.article_photo}}" />
-                    <!--<img class="mainimg" src="https://unsplash.it/700/200/?random" />-->
+                    <img ng-if="profile.article_photo == null" class="mainimg" src="https://unsplash.it/740/210/?random" />
+                    <img ng-if="profile.article_photo != null" class="mainimg" ng-src="../../img/{{profile.article_photo}}"/>
                 </div>
                 <div class="row">
                     <p class="author">By {{profile.first_name}} {{profile.last_name}}</p>
@@ -80,7 +80,8 @@
                     <p>Essential Terminology {{profile.terms}}</p>
                 </div>
                 <div class="row">
-                    <img ng-src="../../img/{{profile.photo}}" width="75px" class="two columns"/>
+                    <!--<img ng-src="../../img/{{profile.photo}}" width="75px" class="two columns"/>-->
+                    <img src="https://unsplash.it/75" class="two columns"/>
                     <p class="ten columns">About {{profile.first_name}}: {{profile.bio}}</p>
                 </div>
             </div>

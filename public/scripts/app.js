@@ -75,9 +75,6 @@ myApp.directive('setClassWhenTop', ['$window', function($window) {
       var topClass = attrs.setClassWhenTop; // get CSS class from directive's attribute value
       var topPadding = parseInt(attrs.paddingWhenAtTop);
 
-      console.log('This is the topPadding', topPadding);
-      console.log('This is the element', element);
-
       var parent = angular.element(element).parent();
       var scope = angular.element(parent).parent();
       var main = angular.element(scope).parent();
@@ -86,14 +83,9 @@ myApp.directive('setClassWhenTop', ['$window', function($window) {
 
       $win.on('scroll', function (e) {
         if ($window.pageYOffset  + topPadding  >= offsetTop) {
-              //console.log('window offset: ', $window.pageYOffset)
           element.addClass(topClass);
-          //element.removeClass("three");
-          //element.removeClass("columns");
         } else {
           element.removeClass(topClass);
-          //element.addClass("three");
-          //element.addClass("columns");
         }
       });
     }
