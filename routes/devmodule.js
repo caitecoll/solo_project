@@ -1,6 +1,3 @@
-/**
- * Created by cecollins on 3/9/16.
- */
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
@@ -15,7 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 router.get('/', function(req, res) {
   var results = [];
   pg.connect(connection, function (err, client, done) {
-    var query = client.query('SELECT * FROM developer_profiles JOIN authors ON (developer_profiles.author_id = authors.author_id) ORDER BY date_created desc');
+    var query = client.query("SELECT * FROM developer_profiles JOIN authors ON (developer_profiles.author_id = " +
+      "authors.author_id) WHERE developer_profiles.status = 'Published' ORDER BY date_created desc");
 
     query.on('row', function(row) {
       results.push(row);
