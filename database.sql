@@ -78,3 +78,12 @@ CREATE TABLE users (
  author_id int REFERENCES authors (author_id),
  password VARCHAR(120) NOT NULL
 );
+
+CREATE TABLE comments(
+  comment_id serial PRIMARY KEY,
+  comment_date timestamp with time zone,
+  admin_id int REFERENCES users (id),
+  tech_id int REFERENCES tech_profiles (id),
+  dev_id int REFERENCES developer_profiles (id),
+  comments text
+);

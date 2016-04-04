@@ -72,7 +72,9 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     var data = {
       postStatus: 'Approved'
     };
-    $http.put('/allarticles/devchange/' + selectedArticleId, data);
+    var promise = $http.put('/allarticles/devchange/' + selectedArticleId, data).then(function() {
+    });
+    return promise;
   };
 
   var unpublishTech = function() {
@@ -80,7 +82,9 @@ myApp.factory('AdminFactory', ['$http', function($http) {
       postStatus: 'Approved'
     };
 
-    $http.put('/allarticles/techchange/' + selectedArticleId, data);
+    var promise = $http.put('/allarticles/techchange/' + selectedArticleId, data).then(function() {
+      });
+    return promise;
   };
 
   var PublishDev = function() {
@@ -88,7 +92,9 @@ myApp.factory('AdminFactory', ['$http', function($http) {
       postStatus: 'Published'
     };
 
-    $http.put('/allarticles/devchange/' + selectedArticleId, data);
+    var promise = $http.put('/allarticles/devchange/' + selectedArticleId, data).then(function() {
+    });
+    return promise;
   };
 
   var PublishTech = function() {
@@ -96,7 +102,9 @@ myApp.factory('AdminFactory', ['$http', function($http) {
       postStatus: 'Published'
     };
 
-    $http.put('/allarticles/techchange/' + selectedArticleId, data);
+    var promise = $http.put('/allarticles/techchange/' + selectedArticleId, data).then(function() {
+    });
+    return promise;
   };
 
   var getSelectedDraft = function() {
