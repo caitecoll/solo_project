@@ -73,6 +73,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
       postStatus: 'Approved'
     };
     var promise = $http.put('/allarticles/devchange/' + selectedArticleId, data).then(function() {
+      console.log("Article Unpublished")
     });
     return promise;
   };
@@ -83,6 +84,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     };
 
     var promise = $http.put('/allarticles/techchange/' + selectedArticleId, data).then(function() {
+      console.log("Article Unpublished")
       });
     return promise;
   };
@@ -93,6 +95,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     };
 
     var promise = $http.put('/allarticles/devchange/' + selectedArticleId, data).then(function() {
+      console.log("Article Published")
     });
     return promise;
   };
@@ -103,6 +106,7 @@ myApp.factory('AdminFactory', ['$http', function($http) {
     };
 
     var promise = $http.put('/allarticles/techchange/' + selectedArticleId, data).then(function() {
+      console.log("Article Published")
     });
     return promise;
   };

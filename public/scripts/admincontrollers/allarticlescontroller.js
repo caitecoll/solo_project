@@ -59,21 +59,24 @@ myApp.controller('AllArticlesController', ['$scope', '$location', '$window', '$h
     $scope.Publish = function(id, status) {
     if (id >= 5000) {
       $scope.adminFactory.factoryGetPostId(id);
-      $scope.adminFactory.factoryPublishDev();
-      $scope.adminFactory.factoryGetTechArticles().then(function() {
-        $scope.techArticles = $scope.adminFactory.factoryTechPosts();
-      });
-      $scope.adminFactory.factoryGetDevArticles().then(function() {
-        $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+      $scope.adminFactory.factoryPublishDev().then(function() {
+        $scope.adminFactory.factoryGetTechArticles().then(function () {
+          $scope.techArticles = $scope.adminFactory.factoryTechPosts();
+        });
+        $scope.adminFactory.factoryGetDevArticles().then(function () {
+          $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+        });
       });
     } else {
       $scope.adminFactory.factoryGetPostId(id);
       $scope.adminFactory.factoryPublishTech();
       $scope.adminFactory.factoryGetTechArticles().then(function() {
-        $scope.techArticles = $scope.adminFactory.factoryTechPosts();
-      });
-      $scope.adminFactory.factoryGetDevArticles().then(function() {
-        $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+        $scope.adminFactory.factoryGetTechArticles().then(function() {
+          $scope.techArticles = $scope.adminFactory.factoryTechPosts();
+        });
+        $scope.adminFactory.factoryGetDevArticles().then(function () {
+          $scope.devArticles = $scope.adminFactory.factoryDevPosts();
+        });
       });
     }
   };
