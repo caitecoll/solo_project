@@ -46,7 +46,10 @@
             <td ng-show="role == 'Admin' && tech.status == 'Approved'" ><button class="statusButton" ng-click="Publish(tech.id, tech.status)">Publish</button></td>
             <td ng-show="role == 'Admin' && tech.status == 'Awaiting Admin Review'" ><button class="statusButton" ng-click="Review(tech.id)">Review</button></td>
             <td ng-show="role == 'Admin' && tech.status == 'Awaiting Author Review'" ><button class="statusButton" ng-click="Review(tech.id)">Review</button></td>
-            <td ng-show="role == 'Author'"><button class="statusButton" ng-click="Edit(tech.id)">Edit</button></td>
+            <td ng-show="role == 'Author' && tech.status == 'Awaiting Admin Review'"><button class="statusButton" ng-click="Edit(tech.id)">Edit</button></td>
+            <td ng-show="role == 'Author' && tech.status == 'Awaiting Author Review'"><button class="statusButton" ng-click="Edit(tech.id)">Edit</button></td>
+            <td ng-show="role == 'Author' && tech.status == 'Approved'">Approved</td>
+            <td ng-show="role == 'Author' && tech.status == 'Published'">Published</td>
         </tr>
     </table>
 </div>
